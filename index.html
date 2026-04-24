@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEON Longevity — Quality Peptides & Longevity Products</title>
+<meta name="description" content="Leader in quality peptide and longevity products. Evidence-based compounds engineered for optimal human performance and healthspan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #03050D;
+  --navy: #070B1A;
+  --deep: #0A0F20;
+  --mid: #0F1628;
+  --slate: #162038;
+
+  --electric: #3B82F6;
+  --electric-lt: #60A5FA;
+  --electric-dk: #1D4ED8;
+
+  --ice: #E8F0FE;
+  --ice-dim: #9CB0D4;
+  --ice-xdim: #4A6080;
+
+  --white: #FAFCFF;
+
+  --border: rgba(59,130,246,.14);
+  --border-subtle: rgba(255,255,255,.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void);
+  color: var(--ice);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(3,5,13,0.85);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+nav.scrolled { background: rgba(3,5,13,0.95); border-bottom-color: var(--border); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; }
+.nav-links { display: flex; gap: 40px; align-items: center; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); text-decoration: none; transition: color 0.2s; font-weight: 400; }
+.nav-links a:hover { color: var(--electric-lt); }
+.nav-social { display: flex; gap: 16px; align-items: center; }
+.social-link { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-subtle); border-radius: 50%; color: var(--ice-dim); text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+.social-link:hover { border-color: var(--electric); color: var(--electric-lt); background: rgba(59,130,246,0.05); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 120px 48px 80px; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, var(--navy) 0%, var(--void) 50%, var(--deep) 100%); }
+.hero-glow { position: absolute; width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%); animation: pulse 8s ease-in-out infinite; pointer-events: none; }
+@keyframes pulse { 0%,100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); } 50% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); } }
+.hero-content { max-width: 900px; text-align: center; position: relative; z-index: 2; opacity: 0; animation: fadeInUp 1s ease-out 0.3s forwards; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--electric); margin-bottom: 24px; font-weight: 500; }
+.hero-title { font-family: 'DM Sans', sans-serif; font-size: 72px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; line-height: 1.1; }
+.hero-title em { font-family: 'Playfair Display', serif; font-weight: 300; font-style: italic; color: var(--electric-lt); }
+.hero-subtitle { font-size: 20px; color: var(--ice-dim); margin-bottom: 48px; line-height: 1.6; font-weight: 300; }
+
+.waitlist-container { background: var(--deep); border: 1px solid var(--border); padding: 40px 48px; max-width: 580px; margin: 0 auto; }
+.waitlist-header { text-align: center; margin-bottom: 32px; }
+.waitlist-header h3 { font-size: 16px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; font-weight: 600; }
+.waitlist-header p { font-size: 13px; color: var(--ice-xdim); line-height: 1.7; }
+.waitlist-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ice-dim); font-weight: 500; }
+.form-group input { background: var(--void); border: 1px solid var(--border-subtle); color: var(--ice); padding: 14px 18px; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: border-color 0.2s, background 0.2s; -webkit-appearance: none; appearance: none; }
+.form-group input:focus { outline: none; border-color: var(--electric); background: rgba(59,130,246,0.03); }
+.form-error { font-size: 11px; color: #EF4444; display: none; }
+.form-group.has-error .form-error { display: block; }
+.form-group.has-error input { border-color: #EF4444; }
+.waitlist-benefits { background: var(--mid); padding: 20px 24px; margin: 24px 0; border-left: 2px solid var(--electric); }
+.waitlist-benefits h4 { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric-lt); margin-bottom: 12px; font-weight: 600; }
+.waitlist-benefits ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.waitlist-benefits li { font-size: 13px; color: var(--ice-dim); padding-left: 20px; position: relative; }
+.waitlist-benefits li::before { content: '→'; position: absolute; left: 0; color: var(--electric); }
+.submit-btn { background: var(--electric); color: var(--white); border: none; padding: 16px 32px; font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; width: 100%; }
+.submit-btn:hover { background: var(--electric-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.25); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.success-message { text-align: center; padding: 40px; display: none; }
+.success-message.show { display: block; }
+.success-icon { width: 56px; height: 56px; border: 1px solid var(--electric); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: var(--electric-lt); }
+.success-message h3 { font-size: 18px; color: var(--electric-lt); margin-bottom: 16px; font-weight: 600; letter-spacing: 0.1em; }
+.success-message p { font-size: 14px; color: var(--ice-dim); line-height: 1.7; }
+
+.section { padding: 120px 48px; position: relative; }
+.section-header { max-width: 1200px; margin: 0 auto 80px; text-align: center; }
+.section-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; font-weight: 500; }
+.section-title { font-family: 'DM Sans', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
+.section-title em { font-family: 'Playfair Display', serif; font-weight: 300; font-style: italic; color: var(--electric-lt); }
+.section-subtitle { font-size: 16px; color: var(--ice-dim); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+.product-card { background: var(--deep); border: 1px solid var(--border-subtle); padding: 40px 32px; transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease; position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); }
+.product-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, background 0.4s ease; }
+.product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--electric) 0%, transparent 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.product-card:hover::before { transform: scaleX(1); }
+.product-card:hover { border-color: var(--border); background: var(--mid); transform: translateY(-4px) !important; }
+.product-icon { width: 48px; height: 48px; border: 1px solid var(--electric); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--electric-lt); }
+.product-card h3 { font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; font-weight: 600; }
+.product-card p { font-size: 13px; color: var(--ice-xdim); line-height: 1.8; margin-bottom: 20px; }
+.product-tag { display: inline-block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric); border: 1px solid var(--electric); padding: 6px 12px; font-weight: 500; }
+
+.science-section { background: var(--navy); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+.science-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+.science-stat { text-align: center; padding: 32px 24px; border: 1px solid var(--border-subtle); background: var(--deep); transition: border-color 0.3s, background 0.3s; opacity: 0; transform: translateY(20px); }
+.science-stat.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, background 0.3s; }
+.science-stat:hover { border-color: var(--border); background: var(--mid); }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 300; color: var(--electric-lt); margin-bottom: 12px; font-style: italic; line-height: 1; }
+.stat-label { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); font-weight: 500; }
+
+.blog-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+.blog-card { background: var(--deep); border: 1px solid var(--border-subtle); overflow: hidden; transition: border-color 0.3s, transform 0.3s; opacity: 0; transform: translateY(20px); }
+.blog-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s; }
+.blog-card:hover { border-color: var(--border); transform: translateY(-4px) !important; }
+.blog-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--mid) 0%, var(--slate) 100%); display: flex; align-items: center; justify-content: center; color: var(--ice-xdim); font-size: 11px; font-family: 'Courier New', monospace; text-align: center; padding: 20px; border-bottom: 1px solid var(--border-subtle); letter-spacing: 0.06em; }
+.blog-content { padding: 32px 28px; }
+.blog-meta { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; font-weight: 500; }
+.blog-card h3 { font-size: 20px; color: var(--white); margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
+.blog-excerpt { font-size: 14px; color: var(--ice-xdim); line-height: 1.7; margin-bottom: 20px; }
+.blog-link { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+.blog-link:hover { gap: 14px; }
+
+footer { background: var(--void); border-top: 1px solid var(--border-subtle); padding: 80px 48px 40px; }
+.footer-content { max-width: 1200px; margin: 0 auto 60px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; }
+.footer-brand h2 { font-size: 24px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+.footer-brand p { font-size: 13px; color: var(--ice-xdim); line-height: 1.8; max-width: 400px; margin-bottom: 24px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-section h3 { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); margin-bottom: 20px; font-weight: 600; }
+.footer-section ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-section a { font-size: 13px; color: var(--ice-xdim); text-decoration: none; transition: color 0.2s; }
+.footer-section a:hover { color: var(--electric-lt); }
+.footer-section a.disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 40px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--ice-xdim); letter-spacing: 0.04em; }
+
+@media (max-width: 968px) {
+  .nav-container { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-title { font-size: 42px; }
+  .hero-subtitle { font-size: 17px; }
+  .waitlist-container { padding: 32px 24px; }
+  .section { padding: 80px 24px; }
+  .section-title { font-size: 36px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .science-grid { grid-template-columns: 1fr; gap: 24px; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-content { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: 34px; }
+  .section-title { font-size: 28px; }
+  .stat-number { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">AEON</a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://instagram.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://facebook.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="https://twitter.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Coming Soon &middot; Quality Peptides &amp; Longevity Products</p>
+    <h1 class="hero-title">Leader in quality <em>peptide</em> and longevity products</h1>
+    <p class="hero-subtitle">Evidence-based compounds engineered for optimal human performance and healthspan. Join our waitlist for early access to pharmaceutical-grade peptides, NAD+ protocols, and precision longevity interventions.</p>
+
+    <div class="waitlist-container">
+      <div class="waitlist-header">
+        <h3>Join the Waitlist</h3>
+        <p>Be the first to access our products when we launch. Early members receive priority access and weekly insights.</p>
+      </div>
+
+      <form class="waitlist-form" id="waitlistForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="waitlist">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-group" id="groupFirstName">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" autocomplete="given-name">
+          <span class="form-error" role="alert">Please enter your first name</span>
+        </div>
+
+        <div class="form-group" id="groupLastName">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+          <span class="form-error" role="alert">Please enter your last name</span>
+        </div>
+
+        <div class="form-group" id="groupEmail">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <span class="form-error" role="alert">Please enter a valid email address</span>
+        </div>
+
+        <div class="waitlist-benefits">
+          <h4>Early Access Includes</h4>
+          <ul>
+            <li>Priority product access when we launch</li>
+            <li>Weekly longevity research newsletter</li>
+            <li>Exclusive educational content</li>
+            <li>Product launch notifications</li>
+          </ul>
+        </div>
+
+        <button type="submit" class="submit-btn">Join Waitlist</button>
+      </form>
+
+      <div class="success-message" id="successMessage" role="status" aria-live="polite">
+        <div class="success-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Welcome to AEON</h3>
+        <p>You're on the list. We'll notify you when our products launch and keep you updated with weekly insights on longevity science.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="section-header">
+    <p class="section-eyebrow">Product Categories</p>
+    <h2 class="section-title">Precision interventions. <em>Measurable outcomes.</em></h2>
+    <p class="section-subtitle">Our product portfolio spans therapeutic peptides, metabolic cofactors, comprehensive testing protocols, and curated longevity bundles—each rigorously vetted for purity and efficacy.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><line x1="12" y1="9" x2="12" y2="3"/><line x1="9" y1="12" x2="3" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="9.88" y1="9.88" x2="7.5" y2="7.5"/><line x1="14.12" y1="9.88" x2="16.5" y2="7.5"/><line x1="9.88" y1="14.12" x2="7.5" y2="16.5"/><line x1="14.12" y1="14.12" x2="16.5" y2="16.5"/></svg></div>
+      <h3>Peptides</h3>
+      <p>Pharmaceutical-grade peptides for tissue repair, immune modulation, and metabolic optimization. Every batch third-party tested for purity &gt;99%.</p>
+      <span class="product-tag">Coming Soon</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 15c3-3 6-3 9 0s6 3 9 0"/><path d="M2 9c3 3 6 3 9 0s6-3 9 0"/><circle cx="5" cy="9" r="1.5" fill="currentColor"/><circle cx="11" cy="9" r="1.5" fill="currentColor"/><circle cx="17" cy="9" r="1.5" fill="currentColor"/><circle cx="8" cy="15" r="1.5" fill="currentColor"/><circle cx="14" cy="15" r="1.5" fill="currentColor"/></svg></div>
+      <h3>NAD+ Supplements</h3>
+      <p>Precursor molecules engineered to restore cellular NAD+ levels. Supports mitochondrial function, DNA repair, and circadian rhythm regulation.</p>
+      <span class="product-tag">Coming Soon</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h3>Longevity Bundles</h3>
+      <p>Curated protocols combining peptides, supplements, and testing. Designed by longevity physicians for specific health optimization goals.</p>
+      <span class="product-tag">Coming Soon</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <h3>Health Testing</h3>
+      <p>Comprehensive biomarker panels measuring 100+ longevity indicators. Track inflammation, metabolic health, hormones, and aging markers over time.</p>
+      <span class="product-tag">Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<section class="section science-section" id="science">
+  <div class="section-header">
+    <p class="section-eyebrow">Evidence-Based Approach</p>
+    <h2 class="section-title">Clinical rigor. <em>Real results.</em></h2>
+    <p class="section-subtitle">We source from peer-reviewed research and clinical trials. Every product meets pharmaceutical manufacturing standards.</p>
+  </div>
+  <div class="science-grid">
+    <div class="science-stat"><div class="stat-number">&gt;99%</div><div class="stat-label">Peptide Purity</div></div>
+    <div class="science-stat"><div class="stat-number">100+</div><div class="stat-label">Biomarkers Tracked</div></div>
+    <div class="science-stat"><div class="stat-number">3rd</div><div class="stat-label">Party Tested</div></div>
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <div class="section-header">
+    <p class="section-eyebrow">Latest Research</p>
+    <h2 class="section-title">Stay <em>informed.</em></h2>
+    <p class="section-subtitle">Insights from the frontiers of longevity science, delivered weekly.</p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card">
+      <div class="blog-image">[ Research imagery: peptide molecular structure ]</div>
+      <div class="blog-content">
+        <p class="blog-meta">Peptides &middot; 5 min read</p>
+        <h3>BPC-157: Tissue Repair Beyond the Hype</h3>
+        <p class="blog-excerpt">A deep dive into the mechanisms of action for this gastric peptide and what clinical data actually supports for injury recovery and gut health optimization.</p>
+        <a href="#" class="blog-link">Read Article &rarr;</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="blog-image">[ Research imagery: NAD+ cellular pathway diagram ]</div>
+      <div class="blog-content">
+        <p class="blog-meta">NAD+ &middot; 8 min read</p>
+        <h3>NMN vs NR: Bioavailability Compared</h3>
+        <p class="blog-excerpt">New pharmacokinetic studies reveal how different NAD+ precursors perform in human trials. We analyze absorption rates, tissue distribution, and sustained elevation data.</p>
+        <a href="#" class="blog-link">Read Article &rarr;</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="blog-image">[ Research imagery: biomarker testing lab ]</div>
+      <div class="blog-content">
+        <p class="blog-meta">Testing &middot; 6 min read</p>
+        <h3>12 Biomarkers That Predict Healthspan</h3>
+        <p class="blog-excerpt">From ApoB to VO2 max, these markers consistently correlate with longevity outcomes in longitudinal studies. Learn which tests matter most and target ranges.</p>
+        <a href="#" class="blog-link">Read Article &rarr;</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h2>AEON</h2>
+      <p>Leader in quality peptide and longevity products. Evidence-based interventions for optimal human performance and healthspan.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://facebook.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://twitter.com/aeoncoaus" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#science">Science</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#" class="disabled">Articles (Coming Soon)</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="mailto:hello@aeonco.com.au">hello@aeonco.com.au</a></li>
+        <li><a href="#" class="disabled">Support (Coming Soon)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 AEON Longevity. All rights reserved.</span>
+    <span>Clinical Blue &middot; Quality Peptides &middot; Evidence-Based</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 100);
+}, { passive: true });
+
+const waitlistForm = document.getElementById('waitlistForm');
+const successMessage = document.getElementById('successMessage');
+const submitBtn = waitlistForm.querySelector('.submit-btn');
+
+waitlistForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+  const firstName = document.getElementById('firstName');
+  const lastName  = document.getElementById('lastName');
+  const email     = document.getElementById('email');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let valid = true;
+
+  if (!firstName.value.trim()) { document.getElementById('groupFirstName').classList.add('has-error'); valid = false; }
+  if (!lastName.value.trim())  { document.getElementById('groupLastName').classList.add('has-error'); valid = false; }
+  if (!email.value.trim() || !emailRegex.test(email.value)) { document.getElementById('groupEmail').classList.add('has-error'); valid = false; }
+
+  if (!valid) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting...';
+
+  try {
+    const formData = new FormData(waitlistForm);
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+  } catch (_) {}
+
+  waitlistForm.style.display = 'none';
+  successMessage.classList.add('show');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in-view'), i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.product-card, .science-stat, .blog-card').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || this.classList.contains('disabled')) return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
