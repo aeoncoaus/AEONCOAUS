@@ -15,49 +15,29 @@
   --deep: #0A0F20;
   --mid: #0F1628;
   --slate: #162038;
-
   --electric: #3B82F6;
   --electric-lt: #60A5FA;
   --electric-dk: #1D4ED8;
-
   --ice: #E8F0FE;
   --ice-dim: #9CB0D4;
   --ice-xdim: #4A6080;
-
   --white: #FAFCFF;
-
   --border: rgba(59,130,246,.14);
   --border-subtle: rgba(255,255,255,.05);
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--void);
-  color: var(--ice);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(3,5,13,0.85);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
+body { background: var(--void); color: var(--ice); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(3,5,13,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); transition: background 0.3s, border-color 0.3s; }
 nav.scrolled { background: rgba(3,5,13,0.95); border-bottom-color: var(--border); }
 .nav-container { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; }
+.nav-logo { font-size: 18px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; }
 .nav-links { display: flex; gap: 40px; align-items: center; list-style: none; }
 .nav-links a { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); text-decoration: none; transition: color 0.2s; font-weight: 400; }
 .nav-links a:hover { color: var(--electric-lt); }
 .nav-social { display: flex; gap: 16px; align-items: center; }
 .social-link { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-subtle); border-radius: 50%; color: var(--ice-dim); text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
 .social-link:hover { border-color: var(--electric); color: var(--electric-lt); background: rgba(59,130,246,0.05); }
-
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 120px 48px 80px; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; background: linear-gradient(180deg, var(--navy) 0%, var(--void) 50%, var(--deep) 100%); }
 .hero-glow { position: absolute; width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%); animation: pulse 8s ease-in-out infinite; pointer-events: none; }
@@ -65,10 +45,9 @@ nav.scrolled { background: rgba(3,5,13,0.95); border-bottom-color: var(--border)
 .hero-content { max-width: 900px; text-align: center; position: relative; z-index: 2; opacity: 0; animation: fadeInUp 1s ease-out 0.3s forwards; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .hero-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--electric); margin-bottom: 24px; font-weight: 500; }
-.hero-title { font-family: 'DM Sans', sans-serif; font-size: 72px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; line-height: 1.1; }
+.hero-title { font-size: 72px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px; line-height: 1.1; }
 .hero-title em { font-family: 'Playfair Display', serif; font-weight: 300; font-style: italic; color: var(--electric-lt); }
 .hero-subtitle { font-size: 20px; color: var(--ice-dim); margin-bottom: 48px; line-height: 1.6; font-weight: 300; }
-
 .waitlist-container { background: var(--deep); border: 1px solid var(--border); padding: 40px 48px; max-width: 580px; margin: 0 auto; }
 .waitlist-header { text-align: center; margin-bottom: 32px; }
 .waitlist-header h3 { font-size: 16px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; font-weight: 600; }
@@ -94,45 +73,43 @@ nav.scrolled { background: rgba(3,5,13,0.95); border-bottom-color: var(--border)
 .success-icon { width: 56px; height: 56px; border: 1px solid var(--electric); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: var(--electric-lt); }
 .success-message h3 { font-size: 18px; color: var(--electric-lt); margin-bottom: 16px; font-weight: 600; letter-spacing: 0.1em; }
 .success-message p { font-size: 14px; color: var(--ice-dim); line-height: 1.7; }
-
 .section { padding: 120px 48px; position: relative; }
 .section-header { max-width: 1200px; margin: 0 auto 80px; text-align: center; }
 .section-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; font-weight: 500; }
-.section-title { font-family: 'DM Sans', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
+.section-title { font-size: 48px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; line-height: 1.2; }
 .section-title em { font-family: 'Playfair Display', serif; font-weight: 300; font-style: italic; color: var(--electric-lt); }
 .section-subtitle { font-size: 16px; color: var(--ice-dim); max-width: 700px; margin: 0 auto; line-height: 1.7; }
-
 .products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-.product-card { background: var(--deep); border: 1px solid var(--border-subtle); padding: 40px 32px; transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease; position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); }
-.product-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, background 0.4s ease; }
-.product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--electric) 0%, transparent 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.product-card { background: var(--deep); border: 1px solid var(--border-subtle); padding: 40px 32px; transition: border-color 0.4s, background 0.4s, transform 0.4s; position: relative; overflow: hidden; opacity: 0; transform: translateY(30px); }
+.product-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s, transform 0.6s, border-color 0.4s, background 0.4s; }
+.product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--electric) 0%, transparent 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
 .product-card:hover::before { transform: scaleX(1); }
 .product-card:hover { border-color: var(--border); background: var(--mid); transform: translateY(-4px) !important; }
 .product-icon { width: 48px; height: 48px; border: 1px solid var(--electric); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--electric-lt); }
 .product-card h3 { font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; font-weight: 600; }
 .product-card p { font-size: 13px; color: var(--ice-xdim); line-height: 1.8; margin-bottom: 20px; }
 .product-tag { display: inline-block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric); border: 1px solid var(--electric); padding: 6px 12px; font-weight: 500; }
-
 .science-section { background: var(--navy); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
 .science-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
 .science-stat { text-align: center; padding: 32px 24px; border: 1px solid var(--border-subtle); background: var(--deep); transition: border-color 0.3s, background 0.3s; opacity: 0; transform: translateY(20px); }
-.science-stat.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, background 0.3s; }
+.science-stat.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s, transform 0.6s, border-color 0.3s, background 0.3s; }
 .science-stat:hover { border-color: var(--border); background: var(--mid); }
 .stat-number { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 300; color: var(--electric-lt); margin-bottom: 12px; font-style: italic; line-height: 1; }
 .stat-label { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); font-weight: 500; }
-
 .blog-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
-.blog-card { background: var(--deep); border: 1px solid var(--border-subtle); overflow: hidden; transition: border-color 0.3s, transform 0.3s; opacity: 0; transform: translateY(20px); }
-.blog-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s; }
+.blog-card { background: var(--deep); border: 1px solid var(--border-subtle); overflow: hidden; transition: border-color 0.3s, transform 0.3s; opacity: 0; transform: translateY(20px); text-decoration: none; color: inherit; display: block; }
+.blog-card.in-view { opacity: 1; transform: translateY(0); transition: opacity 0.6s, transform 0.6s, border-color 0.3s; }
 .blog-card:hover { border-color: var(--border); transform: translateY(-4px) !important; }
 .blog-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--mid) 0%, var(--slate) 100%); display: flex; align-items: center; justify-content: center; color: var(--ice-xdim); font-size: 11px; font-family: 'Courier New', monospace; text-align: center; padding: 20px; border-bottom: 1px solid var(--border-subtle); letter-spacing: 0.06em; }
 .blog-content { padding: 32px 28px; }
 .blog-meta { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; font-weight: 500; }
 .blog-card h3 { font-size: 20px; color: var(--white); margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
 .blog-excerpt { font-size: 14px; color: var(--ice-xdim); line-height: 1.7; margin-bottom: 20px; }
-.blog-link { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
-.blog-link:hover { gap: 14px; }
-
+.blog-link { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--electric-lt); font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+.blog-card:hover .blog-link { gap: 14px; }
+.blog-cta { text-align: center; margin-top: 60px; }
+.blog-cta a { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; border: 1px solid var(--electric); padding: 14px 32px; font-weight: 500; transition: background 0.2s, color 0.2s; display: inline-block; }
+.blog-cta a:hover { background: var(--electric); color: var(--white); }
 footer { background: var(--void); border-top: 1px solid var(--border-subtle); padding: 80px 48px 40px; }
 .footer-content { max-width: 1200px; margin: 0 auto 60px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; }
 .footer-brand h2 { font-size: 24px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
@@ -144,7 +121,6 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
 .footer-section a:hover { color: var(--electric-lt); }
 .footer-section a.disabled { opacity: 0.4; cursor: default; pointer-events: none; }
 .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 40px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--ice-xdim); letter-spacing: 0.04em; }
-
 @media (max-width: 968px) {
   .nav-container { padding: 16px 24px; }
   .nav-links { display: none; }
@@ -154,17 +130,12 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
   .waitlist-container { padding: 32px 24px; }
   .section { padding: 80px 24px; }
   .section-title { font-size: 36px; }
-  .products-grid { grid-template-columns: 1fr; }
+  .products-grid, .blog-grid { grid-template-columns: 1fr; }
   .science-grid { grid-template-columns: 1fr; gap: 24px; }
-  .blog-grid { grid-template-columns: 1fr; }
   .footer-content { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
-@media (max-width: 480px) {
-  .hero-title { font-size: 34px; }
-  .section-title { font-size: 28px; }
-  .stat-number { font-size: 44px; }
-}
+@media (max-width: 480px) { .hero-title { font-size: 34px; } .section-title { font-size: 28px; } .stat-number { font-size: 44px; } }
 </style>
 </head>
 <body>
@@ -193,35 +164,29 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
     <p class="hero-eyebrow">Coming Soon &middot; Quality Peptides &amp; Longevity Products</p>
     <h1 class="hero-title">Leader in quality <em>peptide</em> and longevity products</h1>
     <p class="hero-subtitle">Evidence-based compounds engineered for optimal human performance and healthspan. Join our waitlist for early access to pharmaceutical-grade peptides, NAD+ protocols, and precision longevity interventions.</p>
-
     <div class="waitlist-container">
       <div class="waitlist-header">
         <h3>Join the Waitlist</h3>
         <p>Be the first to access our products when we launch. Early members receive priority access and weekly insights.</p>
       </div>
-
       <form class="waitlist-form" id="waitlistForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <input type="hidden" name="form-name" value="waitlist">
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-
         <div class="form-group" id="groupFirstName">
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" name="firstName" autocomplete="given-name">
-          <span class="form-error" role="alert">Please enter your first name</span>
+          <span class="form-error">Please enter your first name</span>
         </div>
-
         <div class="form-group" id="groupLastName">
           <label for="lastName">Last Name</label>
           <input type="text" id="lastName" name="lastName" autocomplete="family-name">
-          <span class="form-error" role="alert">Please enter your last name</span>
+          <span class="form-error">Please enter your last name</span>
         </div>
-
         <div class="form-group" id="groupEmail">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" autocomplete="email">
-          <span class="form-error" role="alert">Please enter a valid email address</span>
+          <span class="form-error">Please enter a valid email address</span>
         </div>
-
         <div class="waitlist-benefits">
           <h4>Early Access Includes</h4>
           <ul>
@@ -231,10 +196,8 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
             <li>Product launch notifications</li>
           </ul>
         </div>
-
         <button type="submit" class="submit-btn">Join Waitlist</button>
       </form>
-
       <div class="success-message" id="successMessage" role="status" aria-live="polite">
         <div class="success-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h3>Welcome to AEON</h3>
@@ -295,36 +258,39 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
   <div class="section-header">
     <p class="section-eyebrow">Latest Research</p>
     <h2 class="section-title">Stay <em>informed.</em></h2>
-    <p class="section-subtitle">Insights from the frontiers of longevity science, delivered weekly.</p>
+    <p class="section-subtitle">Insights from the frontiers of longevity science. Our complete six-part peptide series is live now.</p>
   </div>
   <div class="blog-grid">
-    <article class="blog-card">
-      <div class="blog-image">[ Research imagery: peptide molecular structure ]</div>
+    <a href="/blog/01-peptides-101-what-are-peptides-and-how-they-work.html" class="blog-card">
+      <div class="blog-image">[ Peptides 101: fundamentals & mechanisms ]</div>
       <div class="blog-content">
-        <p class="blog-meta">Peptides &middot; 5 min read</p>
-        <h3>BPC-157: Tissue Repair Beyond the Hype</h3>
-        <p class="blog-excerpt">A deep dive into the mechanisms of action for this gastric peptide and what clinical data actually supports for injury recovery and gut health optimization.</p>
-        <a href="#" class="blog-link">Read Article &rarr;</a>
+        <p class="blog-meta">Peptides Explained &middot; 10 min read</p>
+        <h3>Peptides 101: What Are Peptides and How Do They Work?</h3>
+        <p class="blog-excerpt">The foundational guide — what peptides actually are, how they signal to cells, and the major clinical uses across recovery, performance, and longevity.</p>
+        <span class="blog-link">Read Article →</span>
       </div>
-    </article>
-    <article class="blog-card">
-      <div class="blog-image">[ Research imagery: NAD+ cellular pathway diagram ]</div>
+    </a>
+    <a href="/blog/04-benefits-of-peptide-therapy.html" class="blog-card">
+      <div class="blog-image">[ Benefits of peptide therapy ]</div>
       <div class="blog-content">
-        <p class="blog-meta">NAD+ &middot; 8 min read</p>
-        <h3>NMN vs NR: Bioavailability Compared</h3>
-        <p class="blog-excerpt">New pharmacokinetic studies reveal how different NAD+ precursors perform in human trials. We analyze absorption rates, tissue distribution, and sustained elevation data.</p>
-        <a href="#" class="blog-link">Read Article &rarr;</a>
+        <p class="blog-meta">Peptides Explained &middot; 9 min read</p>
+        <h3>The Benefits of Peptide Therapy</h3>
+        <p class="blog-excerpt">Evidence-backed effects on recovery, body composition, sleep, cognition, skin, and longevity — with honest notes on what the data actually supports.</p>
+        <span class="blog-link">Read Article →</span>
       </div>
-    </article>
-    <article class="blog-card">
-      <div class="blog-image">[ Research imagery: biomarker testing lab ]</div>
+    </a>
+    <a href="/blog/05-peptides-for-longevity.html" class="blog-card">
+      <div class="blog-image">[ Peptides and healthspan science ]</div>
       <div class="blog-content">
-        <p class="blog-meta">Testing &middot; 6 min read</p>
-        <h3>12 Biomarkers That Predict Healthspan</h3>
-        <p class="blog-excerpt">From ApoB to VO2 max, these markers consistently correlate with longevity outcomes in longitudinal studies. Learn which tests matter most and target ranges.</p>
-        <a href="#" class="blog-link">Read Article &rarr;</a>
+        <p class="blog-meta">Longevity &middot; 11 min read</p>
+        <h3>Peptides for Longevity: The Emerging Science</h3>
+        <p class="blog-excerpt">Epitalon, Thymalin, MOTS-c, FOXO4-DRI, and the senolytic peptides driving the next wave of anti-aging — mechanisms, evidence, protocols.</p>
+        <span class="blog-link">Read Article →</span>
       </div>
-    </article>
+    </a>
+  </div>
+  <div class="blog-cta">
+    <a href="/blog/">View All Articles →</a>
   </div>
 </section>
 
@@ -345,7 +311,7 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
         <li><a href="#products">Products</a></li>
         <li><a href="#science">Science</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><a href="#" class="disabled">Articles (Coming Soon)</a></li>
+        <li><a href="/blog/">All Articles</a></li>
       </ul>
     </div>
     <div class="footer-section">
@@ -364,9 +330,7 @@ footer { background: var(--void); border-top: 1px solid var(--border-subtle); pa
 
 <script>
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 100);
-}, { passive: true });
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); }, { passive: true });
 
 const waitlistForm = document.getElementById('waitlistForm');
 const successMessage = document.getElementById('successMessage');
@@ -375,31 +339,21 @@ const submitBtn = waitlistForm.querySelector('.submit-btn');
 waitlistForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
-
   const firstName = document.getElementById('firstName');
   const lastName  = document.getElementById('lastName');
   const email     = document.getElementById('email');
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let valid = true;
-
   if (!firstName.value.trim()) { document.getElementById('groupFirstName').classList.add('has-error'); valid = false; }
   if (!lastName.value.trim())  { document.getElementById('groupLastName').classList.add('has-error'); valid = false; }
   if (!email.value.trim() || !emailRegex.test(email.value)) { document.getElementById('groupEmail').classList.add('has-error'); valid = false; }
-
   if (!valid) return;
-
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting...';
-
   try {
     const formData = new FormData(waitlistForm);
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    });
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() });
   } catch (_) {}
-
   waitlistForm.style.display = 'none';
   successMessage.classList.add('show');
 });
