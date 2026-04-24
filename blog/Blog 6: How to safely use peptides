@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Start Using Peptides Safely: A Complete Beginner's Guide to Sourcing, Dosing, Administration, and Protocol Design</title>
+<meta name="description" content="A step-by-step beginner's guide to starting peptide therapy safely — choosing the right peptide, finding a legitimate source, reconstitution, injection technique, dosing, cycling, monitoring, and avoiding common mistakes.">
+<meta name="keywords" content="how to start peptides safely, peptide beginner guide, how to inject peptides, peptide dosing guide, peptide reconstitution, peptide cycling, peptide sourcing, safe peptide use">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="author" content="AEON Longevity">
+<link rel="canonical" href="https://aeonco.com.au/blog/06-how-to-start-using-peptides-safely.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Start Using Peptides Safely: A Complete Beginner's Guide">
+<meta property="og:description" content="A step-by-step beginner's guide to starting peptide therapy safely.">
+<meta property="og:url" content="https://aeonco.com.au/blog/06-how-to-start-using-peptides-safely.html">
+<meta property="article:published_time" content="2026-04-24">
+<meta property="article:section" content="Getting Started">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Start Using Peptides Safely: A Complete Beginner's Guide","description":"A step-by-step beginner's guide to starting peptide therapy safely.","author":{"@type":"Organization","name":"AEON Longevity"},"datePublished":"2026-04-24","dateModified":"2026-04-24","articleSection":"Getting Started","keywords":"how to start peptides safely, peptide beginner guide","wordCount":2500,"inLanguage":"en-US"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Start Peptide Therapy Safely","description":"A step-by-step beginner's guide to starting peptide therapy safely.","step":[
+{"@type":"HowToStep","name":"Define Your Goal","text":"Start with a clear, measurable goal and let the goal determine the peptide."},
+{"@type":"HowToStep","name":"Get Baseline Bloodwork","text":"Run a comprehensive panel before starting so you can measure changes."},
+{"@type":"HowToStep","name":"Work With a Qualified Clinician","text":"Find a functional or integrative medicine clinician experienced with peptides."},
+{"@type":"HowToStep","name":"Choose a Legitimate Source","text":"Use a compounding pharmacy via clinician, or vetted research-use-only suppliers with batch COAs."},
+{"@type":"HowToStep","name":"Reconstitute Correctly","text":"Use bacteriostatic water, calculate dose correctly, and label clearly."},
+{"@type":"HowToStep","name":"Learn Injection Technique","text":"Subcutaneous injection with a 29-31 gauge insulin syringe into abdominal or thigh fat."},
+{"@type":"HowToStep","name":"Start With One Peptide","text":"Don't start a stack — establish baseline with one compound first."},
+{"@type":"HowToStep","name":"Start With Conservative Doses","text":"Use minimum effective doses and titrate as needed."},
+{"@type":"HowToStep","name":"Cycle Properly","text":"Most peptides work best in cycles — 8-12 weeks on, 4 weeks off."},
+{"@type":"HowToStep","name":"Monitor and Adjust","text":"Track objective labs, body composition, and subjective metrics. Retest at 8-12 weeks."}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Do I really need a doctor to start peptides?","acceptedAnswer":{"@type":"Answer","text":"Strongly recommended. The monitoring, quality sourcing, and protocol design a clinician brings is worth the cost for most people."}},
+{"@type":"Question","name":"What's the first peptide I should try?","acceptedAnswer":{"@type":"Answer","text":"For most people: either a healing peptide (BPC-157) if you have a specific injury or gut issue, or a GH stack (CJC-1295 + Ipamorelin) if you're pursuing general optimization."}},
+{"@type":"Question","name":"Do peptide injections hurt?","acceptedAnswer":{"@type":"Answer","text":"Almost not at all with a 29-31 gauge insulin needle, proper site, and good technique. Many users describe them as less than a mosquito bite."}},
+{"@type":"Question","name":"How do I know a peptide is working?","acceptedAnswer":{"@type":"Answer","text":"Objective labs, body composition, sleep and recovery metrics, and consistent subjective changes over weeks."}}
+]}
+</script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:760px;margin:0 auto;padding:2rem 1.25rem;line-height:1.65;color:#222;font-size:18px}
+h1{font-size:2.25rem;line-height:1.2;margin:0 0 1rem;color:#111}
+h2{font-size:1.55rem;margin-top:2.5rem;border-bottom:1px solid #eee;padding-bottom:.35rem;color:#111}
+h3{font-size:1.2rem;margin-top:1.75rem;color:#222}
+p{margin:1rem 0}ul,ol{margin:1rem 0;padding-left:1.5rem}li{margin:.35rem 0}
+a{color:#1a6abf;text-decoration:none}a:hover{text-decoration:underline}
+strong{color:#111}.meta{color:#666;font-size:.95rem;margin-bottom:2rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.95rem}
+th,td{border:1px solid #ddd;padding:.5rem .6rem;text-align:left}
+th{background:#f6f8fa;font-weight:600}
+.back-link{display:inline-block;margin-bottom:2rem;font-size:.9rem;color:#666}
+</style>
+</head>
+<body>
+<a href="/" class="back-link">← Back to AEON</a>
+<article>
+<header>
+<h1>How to Start Using Peptides Safely: A Complete Beginner&rsquo;s Guide to Sourcing, Dosing, Administration, and Protocol Design</h1>
+<p class="meta">Category: Getting Started &middot; Published April 24, 2026</p>
+</header>
+
+<p>If you have read through the rest of this series and you are ready to actually start, this is the guide for you. Starting peptides well is not complicated, but there are several places people go wrong: sketchy sources, bad reconstitution math, aggressive first-cycle dosing, no monitoring, and no clear goal. This guide walks you through starting peptides the right way, step by step.</p>
+<p><strong>This is educational content, not medical advice.</strong></p>
+
+<h2>Step 1: Define Your Goal Before You Pick a Peptide</h2>
+<p>The single most common beginner mistake is picking a peptide first, then retroactively justifying why it fits. Do the reverse.</p>
+<ul>
+<li>&ldquo;I want to heal a chronic Achilles tendinopathy.&rdquo; &rarr; BPC-157 &plusmn; TB-500.</li>
+<li>&ldquo;I&rsquo;m 42, body composition drifting, sleep shallow, recovery slow, IGF-1 bottom of range.&rdquo; &rarr; GH stack.</li>
+<li>&ldquo;Visceral fat reduction, can&rsquo;t get GLP-1s.&rdquo; &rarr; Tesamorelin consultation; AOD-9604.</li>
+<li>&ldquo;Run a longevity protocol at 45.&rdquo; &rarr; GH stack cycled + biannual Epitalon + Thymalin + GHK-Cu.</li>
+<li>&ldquo;Chronic post-viral fatigue, abnormal immune labs.&rdquo; &rarr; Thymosin alpha-1 consultation.</li>
+</ul>
+
+<h2>Step 2: Get Baseline Bloodwork Before You Start</h2>
+<p>Minimum panel: CMP, CBC, lipid panel (including ApoB and Lp(a)), HbA1c and fasting insulin, hsCRP, IGF-1, complete thyroid, sex hormones, vitamin D, B12, ferritin. Rerun the relevant panel at 8&ndash;12 weeks into your first cycle.</p>
+
+<h2>Step 3: Work With a Qualified Clinician</h2>
+<p>Who to look for: functional or integrative medicine physicians with peptide experience; anti-aging/longevity clinicians; hormone optimization clinics; sports medicine physicians; established peptide-specialist telehealth clinics.</p>
+<p>A good clinician reviews goals, orders labs, prescribes through a licensed compounding pharmacy, sets a clear protocol, monitors at intervals, and adjusts based on response.</p>
+
+<h2>Step 4: Understand Your Sourcing Options</h2>
+<h3>Option A: Compounding pharmacy via clinician (recommended)</h3>
+<p>Pharmaceutical compounding standards (503A or 503B), clinician-pharmacy accountability. Higher cost but highest quality and legal clarity.</p>
+<h3>Option B: Research chemical suppliers</h3>
+<p>Labeled &ldquo;for research use only.&rdquo; A good supplier provides a batch-specific Certificate of Analysis (COA) from an independent third-party lab (identity via mass spec, purity via HPLC, endotoxin testing). Red flags: no COA, suspiciously cheap, no accountability, pre-reconstituted product sold ready to inject.</p>
+<h3>Option C: Overseas / non-vetted sources</h3>
+<p>Avoid. Risk-to-savings ratio is terrible.</p>
+
+<h2>Step 5: Understand Peptide Reconstitution</h2>
+<p>Most injectable peptides ship as lyophilized powder. Reconstitute with <strong>bacteriostatic water</strong> (sterile water with 0.9% benzyl alcohol).</p>
+<ol>
+<li>Wipe both vials with alcohol swab.</li>
+<li>Draw desired volume of BAC water (1&ndash;3 mL).</li>
+<li>Inject BAC water slowly down the side of the peptide vial — don&rsquo;t blast it.</li>
+<li>Swirl gently. Do not shake — many peptides are shear-sensitive.</li>
+<li>Let sit if needed. You should have a completely clear solution.</li>
+<li>Store refrigerated. Most reconstituted peptides are stable for 2&ndash;4 weeks refrigerated.</li>
+</ol>
+<p><strong>Dose math:</strong> if you have 5 mg in a vial and add 2 mL of BAC water, concentration is 2,500 mcg/mL. On an insulin syringe, 1 mL = 100 units, so each unit = 25 mcg. A 250 mcg dose = 10 units.</p>
+
+<h3>Simple reconstitution reference</h3>
+<table>
+<thead><tr><th>Vial</th><th>BAC water</th><th>Concentration</th><th>100 mcg</th><th>250 mcg</th><th>500 mcg</th></tr></thead>
+<tbody>
+<tr><td>5 mg</td><td>2 mL</td><td>2,500 mcg/mL</td><td>4 units</td><td>10 units</td><td>20 units</td></tr>
+<tr><td>5 mg</td><td>2.5 mL</td><td>2,000 mcg/mL</td><td>5 units</td><td>12.5 units</td><td>25 units</td></tr>
+<tr><td>10 mg</td><td>2 mL</td><td>5,000 mcg/mL</td><td>2 units</td><td>5 units</td><td>10 units</td></tr>
+<tr><td>10 mg</td><td>5 mL</td><td>2,000 mcg/mL</td><td>5 units</td><td>12.5 units</td><td>25 units</td></tr>
+</tbody>
+</table>
+<p>Write concentration and units-per-dose on a label taped to the vial.</p>
+
+<h2>Step 6: Learn Injection Technique</h2>
+<p>Most peptides are subcutaneous (SubQ) injections — into the fat layer just under the skin. Use 1 mL insulin syringes with an integrated 29&ndash;31 gauge &times; 5/16&rdquo; or 1/2&rdquo; needle.</p>
+<p><strong>Sites:</strong> abdomen (at least 2&rdquo; from navel), outer thigh, love-handle area. Rotate sites.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Wash hands.</li>
+<li>Wipe vial top with alcohol, let dry.</li>
+<li>Draw air equal to dose; inject into vial to prevent vacuum.</li>
+<li>Invert vial, draw dose to correct unit mark.</li>
+<li>Flick out large air bubbles.</li>
+<li>Wipe injection site with alcohol swab.</li>
+<li>Pinch a roll of fat (about an inch).</li>
+<li>Insert needle at 45&ndash;90&deg;, quickly and smoothly.</li>
+<li>Inject slowly (3&ndash;5 seconds).</li>
+<li>Withdraw at same angle.</li>
+<li>Press gently with swab.</li>
+<li>Dispose in sharps container. Never reuse.</li>
+</ol>
+
+<h2>Step 7: Start With One Peptide, Not a Stack</h2>
+<p>Start with one peptide for at least 2&ndash;4 weeks. Establish a baseline, note how you respond, then add the second peptide if the protocol calls for it. Exception: CJC-1295 + Ipamorelin are almost always started together because they work synergistically.</p>
+
+<h2>Step 8: Start With Conservative Doses</h2>
+<table>
+<thead><tr><th>Peptide</th><th>Starting dose</th><th>Frequency</th><th>Route</th></tr></thead>
+<tbody>
+<tr><td>BPC-157</td><td>250 mcg</td><td>1&ndash;2&times; daily</td><td>SubQ</td></tr>
+<tr><td>TB-500</td><td>2&ndash;2.5 mg</td><td>2&times; weekly</td><td>SubQ/IM</td></tr>
+<tr><td>CJC-1295 (no DAC)</td><td>100 mcg</td><td>1&ndash;3&times; daily</td><td>SubQ</td></tr>
+<tr><td>Ipamorelin</td><td>100 mcg</td><td>1&ndash;3&times; daily</td><td>SubQ</td></tr>
+<tr><td>Sermorelin</td><td>100&ndash;300 mcg</td><td>Nightly</td><td>SubQ</td></tr>
+<tr><td>Tesamorelin</td><td>1 mg</td><td>Daily</td><td>SubQ</td></tr>
+<tr><td>Semax</td><td>100&ndash;300 mcg</td><td>Daily</td><td>Intranasal</td></tr>
+<tr><td>Selank</td><td>100&ndash;300 mcg</td><td>Daily</td><td>Intranasal</td></tr>
+<tr><td>GHK-Cu (SubQ)</td><td>1&ndash;2 mg</td><td>Daily</td><td>SubQ</td></tr>
+<tr><td>Epitalon</td><td>5&ndash;10 mg total/course</td><td>Short course 1&ndash;2&times;/yr</td><td>SubQ</td></tr>
+<tr><td>PT-141</td><td>1 mg</td><td>On demand</td><td>SubQ</td></tr>
+<tr><td>MOTS-c</td><td>5&ndash;10 mg</td><td>2&ndash;3&times; weekly</td><td>SubQ</td></tr>
+<tr><td>Thymosin alpha-1</td><td>1.6 mg</td><td>2&times; weekly</td><td>SubQ</td></tr>
+</tbody>
+</table>
+
+<h2>Step 9: Cycle Properly</h2>
+<ul>
+<li><strong>GH-releasing peptides:</strong> 8&ndash;12 weeks on, 4 weeks off.</li>
+<li><strong>Healing peptides:</strong> dose for duration of injury + 2&ndash;4 weeks.</li>
+<li><strong>Longevity peptides:</strong> short intensive courses, 1&ndash;2&times;/year.</li>
+<li><strong>Cognitive peptides:</strong> 2&ndash;4 week cycles with breaks.</li>
+<li><strong>Thymosin alpha-1:</strong> 4&ndash;12 week courses around immune challenges.</li>
+</ul>
+
+<h2>Step 10: Monitor, Adjust, and Be Patient</h2>
+<p>Track objective labs at 8&ndash;12 weeks; body composition every 8&ndash;12 weeks; subjective metrics weekly (1&ndash;10 ratings for sleep, energy, recovery, mood, etc.); any new symptoms early.</p>
+<p>Peptides take 2&ndash;6 weeks to produce noticeable effects and 8&ndash;12 weeks to fully express. Don&rsquo;t judge on week 1.</p>
+
+<h2>Safety: Contraindications</h2>
+<p>Consult a physician carefully before starting if: active cancer, recent cancer history, pregnancy or breastfeeding, uncontrolled diabetes, severe kidney/liver disease, severe hypertension or cardiovascular disease, autoimmune conditions, or other medications (especially blood thinners, immunosuppressants, insulin, hormone therapy).</p>
+
+<h2>Red Flags in the Peptide Space</h2>
+<ul>
+<li>&ldquo;Buy 5 peptides, get 2 free&rdquo; promotions.</li>
+<li>Prices dramatically lower than competitors.</li>
+<li>Pre-reconstituted peptide solutions sold ready to inject.</li>
+<li>Influencers pushing brands without disclosure.</li>
+<li>Clinics prescribing the same protocol to everyone.</li>
+<li>Sources refusing to provide batch-specific COAs.</li>
+<li>&ldquo;Breakthrough&rdquo; peptides you&rsquo;ve never heard of, sold as cures for everything.</li>
+</ul>
+
+<h2>Common Mistakes Beginners Make</h2>
+<ol>
+<li>Starting with a stack of 3+ peptides at once.</li>
+<li>Going too high, too fast.</li>
+<li>Poor sourcing.</li>
+<li>Reconstitution math errors.</li>
+<li>No baseline labs.</li>
+<li>Skipping cycles.</li>
+<li>Not updating the clinician when side effects appear.</li>
+<li>Quitting at week 2 because &ldquo;nothing happened.&rdquo;</li>
+<li>Ignoring the fundamentals (sleep, training, nutrition).</li>
+<li>Running peptides indefinitely &ldquo;just in case.&rdquo;</li>
+</ol>
+
+<h2>A Sensible First Protocol Template</h2>
+<p><strong>Weeks 1&ndash;8:</strong> CJC-1295 (no DAC) 100 mcg + Ipamorelin 100 mcg, nightly SubQ. Optional BPC-157 250 mcg if there&rsquo;s an injury or gut issue. Optional GHK-Cu topical for skin.</p>
+<p><strong>Monitoring:</strong> baseline labs before starting; weekly subjective tracking; labs at week 8.</p>
+<p><strong>Weeks 9&ndash;12:</strong> off all peptides. Track how baseline holds.</p>
+<p><strong>At week 12:</strong> decide to continue, maintain with fundamentals, or revise based on results.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Do I really need a doctor to start peptides?</h3>
+<p>Strongly recommended. Monitoring, quality sourcing, and protocol design are worth the cost for most people.</p>
+<h3>Can I start without bloodwork?</h3>
+<p>You can. You shouldn&rsquo;t. You&rsquo;ll have no way to know whether it helped or hurt you.</p>
+<h3>What&rsquo;s the first peptide I should try?</h3>
+<p>Either BPC-157 (if you have a specific injury or gut issue) or a CJC+Ipamorelin GH stack (for general optimization).</p>
+<h3>How much do peptides cost per month?</h3>
+<p>$150&ndash;300 per peptide for research-use-only sourcing; $300&ndash;600 for clinician-prescribed compounded. More complex stacks run higher.</p>
+<h3>Do peptide injections hurt?</h3>
+<p>Almost not at all with a 29&ndash;31 gauge insulin needle and good technique.</p>
+<h3>How do I know a peptide is working?</h3>
+<p>Objective labs, body composition, sleep and recovery metrics, and consistent subjective changes over weeks — not one good night or one good workout.</p>
+<h3>What if I have a reaction?</h3>
+<p>Stop, document, contact your clinician. Minor injection-site irritation is usually not a reaction; systemic symptoms (rash, breathing difficulty, severe headache, cardiovascular symptoms) warrant immediate medical attention.</p>
+
+<h2>Final Thoughts</h2>
+<p>Starting peptides well is a discipline, not a purchase. Define the goal. Get the labs. Pick the right source. Get the dose right. Start slow. Track rigorously. Cycle intentionally. Adjust based on data. Work with a clinician. Respect the compounds. Don&rsquo;t chase hype.</p>
+<p><strong>Disclaimer:</strong> This article is for educational purposes only and does not constitute medical advice. Peptide use carries legal, regulatory, and health considerations that vary by jurisdiction. Always consult a qualified physician before beginning any peptide protocol.</p>
+
+</article>
+</body>
+</html>
