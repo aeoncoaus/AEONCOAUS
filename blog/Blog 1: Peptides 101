@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peptides 101: What Are Peptides, How Do They Work, and What Are They Used For?</title>
+<meta name="description" content="A comprehensive guide to peptides — what they are, how they work in the body, and the most common peptide therapy uses for recovery, performance, longevity, and metabolic health.">
+<meta name="keywords" content="what are peptides, peptide therapy, how peptides work, peptide uses, peptide therapy uses, bioactive peptides">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="AEON Longevity">
+<link rel="canonical" href="https://aeonco.com.au/blog/01-peptides-101-what-are-peptides-and-how-they-work.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Peptides 101: What Are Peptides, How Do They Work, and What Are They Used For?">
+<meta property="og:description" content="A comprehensive guide to peptides — what they are, how they work in the body, and the most common peptide therapy uses for recovery, performance, longevity, and metabolic health.">
+<meta property="og:url" content="https://aeonco.com.au/blog/01-peptides-101-what-are-peptides-and-how-they-work.html">
+<meta property="article:published_time" content="2026-04-24">
+<meta property="article:section" content="Peptides Explained">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Peptides 101: What Are Peptides, How Do They Work, and What Are They Used For?">
+<meta name="twitter:description" content="A comprehensive guide to peptides — what they are, how they work in the body, and the most common peptide therapy uses for recovery, performance, longevity, and metabolic health.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Peptides 101: What Are Peptides, How Do They Work, and What Are They Used For?",
+  "description": "A comprehensive guide to peptides — what they are, how they work in the body, and the most common peptide therapy uses for recovery, performance, longevity, and metabolic health.",
+  "author": {"@type": "Organization", "name": "AEON Longevity"},
+  "datePublished": "2026-04-24",
+  "dateModified": "2026-04-24",
+  "articleSection": "Peptides Explained",
+  "keywords": "what are peptides, peptide therapy, how peptides work, peptide uses, bioactive peptides",
+  "wordCount": 2500,
+  "inLanguage": "en-US"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Are peptides the same as steroids?","acceptedAnswer":{"@type":"Answer","text":"No. Steroids are lipid-based molecules (derived from cholesterol) that bind intracellular steroid receptors. Peptides are amino acid chains that bind cell surface receptors. They have different mechanisms, different side effect profiles, and different legal statuses."}},
+    {"@type":"Question","name":"How long before peptides start working?","acceptedAnswer":{"@type":"Answer","text":"Most people notice some early effects within 1–2 weeks — often in sleep, inflammation, or recovery. More visible changes (body composition, skin, long-term healing) typically take 6–12 weeks."}},
+    {"@type":"Question","name":"Do peptides show up on drug tests?","acceptedAnswer":{"@type":"Answer","text":"Many peptides (especially GHRPs, GHRHs, and some tissue-repair peptides) are on the WADA prohibited list and can be detected by advanced sports testing. Recreational drug tests do not typically screen for them."}},
+    {"@type":"Question","name":"Can you stack multiple peptides together?","acceptedAnswer":{"@type":"Answer","text":"Yes, and most biohackers and clinicians do. CJC-1295 + Ipamorelin is the classic GH stack; BPC-157 + TB-500 is a common healing stack. Stacking should still be done under guidance."}},
+    {"@type":"Question","name":"Can women use peptides?","acceptedAnswer":{"@type":"Answer","text":"Yes, with dosing often adjusted downward. GH-releasing peptides, BPC-157, GHK-Cu, and longevity peptides are all widely used by women. Some peptides like PT-141 are FDA-approved specifically for women."}},
+    {"@type":"Question","name":"Do you have to inject peptides for life?","acceptedAnswer":{"@type":"Answer","text":"No. Most peptide protocols are cycled and finite. The point is to shift you toward a better baseline, not to keep you dependent."}}
+  ]
+}
+</script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:760px;margin:0 auto;padding:2rem 1.25rem;line-height:1.65;color:#222;font-size:18px}
+h1{font-size:2.25rem;line-height:1.2;margin:0 0 1rem;color:#111}
+h2{font-size:1.55rem;margin-top:2.5rem;border-bottom:1px solid #eee;padding-bottom:.35rem;color:#111}
+h3{font-size:1.2rem;margin-top:1.75rem;color:#222}
+p{margin:1rem 0}
+ul,ol{margin:1rem 0;padding-left:1.5rem}
+li{margin:.35rem 0}
+a{color:#1a6abf;text-decoration:none}
+a:hover{text-decoration:underline}
+strong{color:#111}
+.meta{color:#666;font-size:.95rem;margin-bottom:2rem}
+.back-link{display:inline-block;margin-bottom:2rem;font-size:.9rem;color:#666}
+article{padding:0}
+.faq h3{font-size:1.05rem;margin-top:1.4rem}
+hr{border:none;border-top:1px solid #eee;margin:2.5rem 0}
+</style>
+</head>
+<body>
+<a href="/" class="back-link">← Back to AEON</a>
+<article>
+<header>
+<h1>Peptides 101: What Are Peptides, How Do They Work, and What Are They Used For?</h1>
+<p class="meta">Category: Peptides Explained &middot; Published April 24, 2026</p>
+</header>
+
+<p>If you have spent any time in the biohacking, longevity, or performance space over the last five years, you have almost certainly heard the word &ldquo;peptides&rdquo; thrown around. Elite athletes talk about using them to bounce back from injuries in half the time. Longevity researchers treat them as one of the most promising frontiers in healthspan extension. Clinicians now prescribe them for everything from stubborn weight loss to sleep optimization to skin repair.</p>
+
+<p>But for all the hype, most people still cannot answer a basic question: <strong>what actually is a peptide?</strong></p>
+
+<p>This guide is the foundational piece in our six-part peptide series. By the end of it, you will understand exactly what peptides are at a molecular level, how they signal to cells in your body, the main clinical and performance uses they are known for, and how they differ from traditional drugs, supplements, and hormones. If you want to go deeper, we recommend reading our companion articles on the <a href="/blog/02-complete-guide-to-types-of-peptides.html">different types of peptides</a>, <a href="/blog/03-peptide-myths-debunked.html">common peptide myths</a>, <a href="/blog/04-benefits-of-peptide-therapy.html">the benefits of peptide therapy</a>, <a href="/blog/05-peptides-for-longevity.html">peptides and longevity</a>, and <a href="/blog/06-how-to-start-using-peptides-safely.html">how to start peptides safely</a>.</p>
+
+<h2>What Are Peptides? A Simple Definition</h2>
+<p>A peptide is a short chain of amino acids — the same building blocks that make up proteins — linked together by peptide bonds. The only real difference between a peptide and a protein is length. Most sources define a peptide as having fewer than roughly 50 amino acids; anything longer is generally classified as a protein.</p>
+<p>To put that in perspective: insulin, which most people think of as a hormone, is actually a peptide (51 amino acids). Oxytocin, the so-called &ldquo;bonding&rdquo; hormone, is a peptide of just nine amino acids. Human growth hormone (hGH), at 191 amino acids, is technically a protein. Your own body manufactures thousands of different peptides every day, and they act as one of the most important signaling systems you have.</p>
+<p>The peptides used in therapy and biohacking are either exact copies of naturally occurring peptides in the human body, synthetic analogues (engineered variations designed to be more stable, more potent, or longer-lasting), or novel sequences discovered in research.</p>
+
+<h3>Peptides vs. Proteins vs. Amino Acids</h3>
+<p>This is the cleanest mental model:</p>
+<ul>
+<li><strong>Amino acids</strong> are single &ldquo;bricks.&rdquo;</li>
+<li><strong>Peptides</strong> are short chains of bricks — usually between 2 and 50.</li>
+<li><strong>Proteins</strong> are long chains of bricks — usually hundreds, often folded into complex three-dimensional structures.</li>
+</ul>
+<p>Because peptides are short, they are typically more flexible, easier to synthesize in a lab, easier for the body to break down and clear, and — critically — capable of binding to very specific cellular receptors to trigger targeted biological effects.</p>
+
+<h2>How Do Peptides Work in the Body?</h2>
+<p>Peptides are fundamentally <strong>signaling molecules</strong>. They do not act as structural components the way larger proteins do. Instead, they bind to receptors on the surface of cells and tell those cells to do something — produce more of a certain hormone, release a growth factor, activate a repair pathway, dial down inflammation, or modulate an immune response.</p>
+<p>Think of a peptide as a key, and the receptor as a lock. Only the right key fits the right lock. That specificity is what makes peptides so interesting therapeutically — well-designed peptides can target one tissue or one pathway without affecting the hundred other systems a broader drug might hit.</p>
+
+<h3>The Three Main Ways Peptides Act</h3>
+<ol>
+<li><strong>Endocrine signaling.</strong> The peptide is released into the bloodstream and travels to distant tissues. GH-releasing peptides like CJC-1295 and Ipamorelin work this way.</li>
+<li><strong>Paracrine signaling.</strong> The peptide acts locally on nearby cells. BPC-157 appears to work largely this way when used to accelerate healing in gut tissue, tendons, or ligaments.</li>
+<li><strong>Autocrine signaling.</strong> The peptide acts on the same cell that produced it — a self-regulating loop.</li>
+</ol>
+<p>Some peptides also work intracellularly, influencing gene expression directly. Epitalon, one of the most studied longevity peptides, appears to influence telomerase activity inside cells, potentially slowing one of the classic hallmarks of aging.</p>
+
+<h3>Why Peptides Are So Targeted</h3>
+<p>Traditional pharmaceutical drugs are often small molecules that can hit multiple receptors across multiple tissues — which is why drugs tend to come with long lists of side effects. Peptides, by contrast, are usually highly selective. This is both their biggest strength and their biggest limitation: they can hit a specific target cleanly, but they are also easier for the body to break down, which is why most are delivered by injection rather than as a pill.</p>
+
+<h2>Why Peptides Don&rsquo;t Usually Work as Oral Pills</h2>
+<p>One of the most common questions beginners ask is: &ldquo;Why do I have to inject these? Why not a pill?&rdquo;</p>
+<p>The answer is your stomach. Peptides are made of amino acids, which means your digestive enzymes see them as food. Swallow a peptide and your gut will do exactly what it was built to do: chop it back into individual amino acids and absorb those. Almost no intact peptide survives to reach the bloodstream.</p>
+<p>That is why most therapeutic peptides are delivered as subcutaneous injections, with tiny insulin-style needles that are essentially painless. Some peptides can be formulated as nasal sprays (like Selank or PT-141), transdermal creams (like GHK-Cu for skin), oral troches that dissolve under the tongue, or, in rare cases, oral capsules with protective coatings. But the gold standard remains injectable.</p>
+
+<h2>What Are Peptides Used For? The Major Use Categories</h2>
+<p>The peptide landscape is huge, but almost every therapeutic peptide falls into one of the following use cases.</p>
+
+<h3>1. Recovery, Healing, and Injury Repair</h3>
+<p>This is probably the single most popular reason people try peptides in the fitness and biohacking community. Peptides like <strong>BPC-157</strong> and <strong>TB-500 (thymosin beta-4)</strong> are widely used off-label to accelerate recovery from soft-tissue injuries — tendon strains, ligament tears, chronic tendinopathy, muscle pulls. Users commonly report faster recovery from training, reduced joint pain, and better outcomes from stubborn injuries that physical therapy alone was not resolving.</p>
+<p>The evidence is strongest in animal studies and anecdotal reports; human RCT data is limited. The mechanistic rationale — promoting angiogenesis (new blood vessel growth), supporting collagen synthesis, and modulating growth factor activity — is well understood.</p>
+
+<h3>2. Growth Hormone Optimization</h3>
+<p>As you age, your natural pulsatile growth hormone release declines — typically by 1&ndash;2% per year after age 30. Growth hormone releasing peptides (GHRPs) and growth hormone releasing hormones (GHRHs) like <strong>CJC-1295, Ipamorelin, Tesamorelin, Sermorelin, and MK-677</strong> prompt your pituitary to release your own GH in a more youthful pattern.</p>
+<p>People use GH peptides for improved body composition (more lean mass, less fat), better sleep quality, faster recovery, and skin and nail quality. Unlike injecting exogenous HGH, these peptides preserve the body&rsquo;s own feedback loops, which makes them considered safer for long-term optimization protocols.</p>
+
+<h3>3. Fat Loss and Metabolic Health</h3>
+<p><strong>GLP-1 agonist peptides</strong> — including semaglutide (the peptide behind Ozempic and Wegovy) and tirzepatide (a dual GLP-1/GIP agonist, sold as Mounjaro and Zepbound) — have fundamentally changed the obesity and type 2 diabetes treatment landscape. These are FDA-approved peptides, prescribed by physicians, that mimic gut hormones to regulate appetite, slow gastric emptying, and improve insulin sensitivity.</p>
+<p>Other metabolic peptides include <strong>AOD-9604</strong> (a fragment of human growth hormone studied for fat loss) and <strong>5-amino-1MQ</strong>.</p>
+
+<h3>4. Cognitive Enhancement and Mood</h3>
+<p>Peptides like <strong>Semax</strong> and <strong>Selank</strong> — both Russian-developed and widely used in Eastern European clinical practice — are reported to support focus, memory, and anxiety regulation. <strong>Cerebrolysin</strong> is a peptide cocktail that has been studied in stroke recovery and cognitive decline. <strong>Dihexa</strong> has shown striking results in animal models for synaptic growth and memory.</p>
+
+<h3>5. Skin, Hair, and Cosmetic Applications</h3>
+<p><strong>GHK-Cu</strong> (copper peptide) is probably the most famous cosmetic peptide. Topical GHK-Cu has solid evidence for improving skin firmness, reducing wrinkles, and supporting hair follicle health. You will find it in premium skincare formulations as well as in injectable form for systemic anti-aging protocols.</p>
+
+<h3>6. Sexual Health</h3>
+<p><strong>PT-141 (bremelanotide)</strong> is an FDA-approved peptide for hypoactive sexual desire disorder in women, and it is used off-label by men as well. Unlike vasodilators such as Viagra, PT-141 works centrally in the brain via the melanocortin system.</p>
+
+<h3>7. Immune Modulation</h3>
+<p><strong>Thymosin alpha-1</strong> has decades of clinical use in some countries for immune support — particularly in immunocompromised patients, certain viral infections, and as an adjunct in cancer treatment protocols. It modulates T-cell activity and is one of the better-studied immunomodulating peptides.</p>
+
+<h3>8. Longevity and Anti-Aging</h3>
+<p>This is a rapidly growing category and the focus of <a href="/blog/05-peptides-for-longevity.html">our dedicated longevity peptide article</a>. Key players include <strong>Epitalon</strong>, <strong>Thymalin</strong>, <strong>FOXO4-DRI</strong>, and <strong>MOTS-c</strong>.</p>
+
+<h2>Peptides vs. Traditional Medications, SARMs, and Hormones</h2>
+<p><strong>Peptides vs. traditional small-molecule drugs.</strong> Small molecules can usually be taken orally, are cheap to manufacture, and often hit multiple targets. Peptides are generally more targeted, more biologically &ldquo;natural,&rdquo; and have a different safety profile — typically fewer broad side effects, but more narrow use cases.</p>
+<p><strong>Peptides vs. SARMs.</strong> SARMs are small-molecule compounds that bind androgen receptors. They are not peptides. SARMs suppress natural testosterone; most peptides do not affect the HPTA in the same way. Peptides also have a much broader range of uses beyond muscle growth.</p>
+<p><strong>Peptides vs. exogenous HGH or testosterone.</strong> Injecting HGH or testosterone directly shuts down your own production through feedback loops. GH-releasing peptides work <em>with</em> your own system — prompting natural release and preserving the feedback loop.</p>
+<p><strong>Peptides vs. supplements and nootropics.</strong> Most supplements are either nutrients or plant compounds. Peptides are pharmacologically active signaling molecules with specific receptor targets.</p>
+
+<h2>Are Peptides Legal? A Quick Overview</h2>
+<p>Some peptides are fully FDA-approved pharmaceuticals (semaglutide, tirzepatide, tesamorelin, PT-141, sermorelin). These require a prescription in the US.</p>
+<p>Many others (BPC-157, TB-500, CJC-1295, Ipamorelin, Epitalon, GHK-Cu injectable, and most others in the biohacking space) are sold legally in the US only as &ldquo;research chemicals&rdquo; — labeled &ldquo;not for human consumption.&rdquo; Buying them is legal; using them on yourself falls into a regulatory gray zone.</p>
+<p>Many users work with a knowledgeable functional medicine physician or an anti-aging clinic to access peptides legally through compounding pharmacies. This is the safest and most accountable route.</p>
+
+<h2>How Are Peptides Administered?</h2>
+<p>Most peptides are given as <strong>subcutaneous (SubQ) injections</strong> — a small 28&ndash;31 gauge insulin needle injected into the fat of the stomach or thigh. These injections are essentially painless once you know the technique. Typical dose volumes are very small (0.1&ndash;0.3 mL), and peptides are reconstituted from a dry powder with bacteriostatic water.</p>
+<p>Other routes include intramuscular injection, intranasal spray (Selank, Semax, PT-141), topical (GHK-Cu), and oral troches/sublingual.</p>
+
+<h2>What to Expect When You Start Peptide Therapy</h2>
+<ul>
+<li><strong>Week 1&ndash;2:</strong> Subtle changes — often better sleep depth on GH-releasing peptides, early tissue repair signals.</li>
+<li><strong>Week 3&ndash;6:</strong> Noticeable changes in recovery, skin, body composition, or energy.</li>
+<li><strong>Month 2&ndash;3:</strong> Most peptide protocols are evaluated on roughly this timeline.</li>
+</ul>
+<p>Peptide protocols are usually cycled — for example, 8 weeks on, 4 weeks off — to maintain receptor sensitivity.</p>
+
+<h2>Safety and Side Effects in Brief</h2>
+<p>Peptides are generally well tolerated, but they are pharmacologically active and not risk-free. The most common side effects include injection site reactions, temporary flushing, water retention or hand tingling on GH peptides, nausea on GLP-1s, and fatigue or headache when dosing is too aggressive.</p>
+<p><strong>This article is informational only and is not medical advice.</strong> Always work with a qualified physician before beginning any peptide protocol.</p>
+
+<h2 class="faq">Frequently Asked Questions</h2>
+
+<h3>Are peptides the same as steroids?</h3>
+<p>No. Steroids are lipid-based molecules (derived from cholesterol) that bind intracellular steroid receptors. Peptides are amino acid chains that bind cell surface receptors. They have different mechanisms, different side effect profiles, and different legal statuses.</p>
+
+<h3>How long before peptides start working?</h3>
+<p>Most people notice some early effects within 1&ndash;2 weeks — often in sleep, inflammation, or recovery. More visible changes typically take 6&ndash;12 weeks.</p>
+
+<h3>Do peptides show up on drug tests?</h3>
+<p>Many peptides are on the WADA prohibited list and can be detected by advanced sports testing. Recreational drug tests do not typically screen for them.</p>
+
+<h3>Can you stack multiple peptides together?</h3>
+<p>Yes, and most biohackers and clinicians do. CJC-1295 + Ipamorelin is the classic GH stack; BPC-157 + TB-500 is a common healing stack.</p>
+
+<h3>Can women use peptides?</h3>
+<p>Yes, with dosing often adjusted downward. Some peptides (like PT-141) are actually FDA-approved specifically for women.</p>
+
+<h3>Do you have to inject peptides for life?</h3>
+<p>No. Most peptide protocols are cycled and finite.</p>
+
+<h2>The Bottom Line</h2>
+<p>Peptides are not a magic bullet, and they are not just another supplement. They are a legitimate, rapidly maturing class of signaling molecules with real clinical applications across recovery, metabolic health, hormone optimization, cognition, skin, and longevity. When sourced well and used with a thoughtful protocol, they offer some of the most targeted biological leverage currently available outside of mainstream pharmaceuticals.</p>
+<p>Now that you have the foundation, the next step is understanding the major categories and what each one actually does. Continue to our guide on <a href="/blog/02-complete-guide-to-types-of-peptides.html">the different types of peptides and what they do</a>.</p>
+
+</article>
+</body>
+</html>
