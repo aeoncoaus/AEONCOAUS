@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — AEON Longevity</title>
+<meta name="description" content="Evidence-based insights on peptides, longevity, and healthspan. Our six-part peptide series and ongoing research articles.">
+<meta name="author" content="AEON Longevity">
+<link rel="canonical" href="https://aeonco.com.au/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #03050D;
+  --navy: #070B1A;
+  --deep: #0A0F20;
+  --mid: #0F1628;
+  --slate: #162038;
+  --electric: #3B82F6;
+  --electric-lt: #60A5FA;
+  --ice: #E8F0FE;
+  --ice-dim: #9CB0D4;
+  --ice-xdim: #4A6080;
+  --white: #FAFCFF;
+  --border: rgba(59,130,246,.14);
+  --border-subtle: rgba(255,255,255,.05);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--void); color: var(--ice); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; min-height: 100vh; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(3,5,13,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 18px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--electric-lt); text-decoration: none; }
+.nav-links { display: flex; gap: 40px; align-items: center; list-style: none; }
+.nav-links a { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); text-decoration: none; transition: color 0.2s; font-weight: 400; }
+.nav-links a:hover { color: var(--electric-lt); }
+.nav-links a.active { color: var(--electric-lt); }
+
+.blog-hero { padding: 180px 48px 80px; text-align: center; position: relative; overflow: hidden; }
+.blog-hero::before { content: ''; position: absolute; width: 600px; height: 600px; top: 0; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%); pointer-events: none; }
+.blog-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.blog-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--electric); margin-bottom: 20px; font-weight: 500; }
+.blog-hero h1 { font-size: 56px; font-weight: 600; letter-spacing: -0.02em; color: var(--white); margin-bottom: 20px; line-height: 1.15; }
+.blog-hero h1 em { font-family: 'Playfair Display', serif; font-weight: 300; font-style: italic; color: var(--electric-lt); }
+.blog-hero p { font-size: 17px; color: var(--ice-dim); max-width: 620px; margin: 0 auto; line-height: 1.7; }
+
+.articles-section { padding: 40px 48px 120px; }
+.articles-list { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+
+.article-card { background: var(--deep); border: 1px solid var(--border-subtle); padding: 40px 48px; text-decoration: none; color: inherit; display: grid; grid-template-columns: 80px 1fr auto; gap: 32px; align-items: center; transition: border-color 0.3s, background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+.article-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 2px; background: var(--electric); transform: scaleY(0); transform-origin: top; transition: transform 0.3s; }
+.article-card:hover { border-color: var(--border); background: var(--mid); transform: translateX(4px); }
+.article-card:hover::before { transform: scaleY(1); }
+
+.article-number { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 300; font-style: italic; color: var(--electric-lt); line-height: 1; }
+.article-body { min-width: 0; }
+.article-meta { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--electric); margin-bottom: 10px; font-weight: 500; }
+.article-card h2 { font-size: 22px; color: var(--white); margin-bottom: 10px; line-height: 1.3; font-weight: 600; }
+.article-card p { font-size: 14px; color: var(--ice-xdim); line-height: 1.6; }
+.article-arrow { color: var(--electric-lt); font-size: 18px; transition: transform 0.3s; }
+.article-card:hover .article-arrow { transform: translateX(4px); }
+
+.back-home { text-align: center; margin-top: 60px; }
+.back-home a { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ice-dim); text-decoration: none; transition: color 0.2s; }
+.back-home a:hover { color: var(--electric-lt); }
+
+footer { background: var(--navy); border-top: 1px solid var(--border-subtle); padding: 40px 48px; text-align: center; font-size: 11px; color: var(--ice-xdim); letter-spacing: 0.04em; }
+
+@media (max-width: 768px) {
+  .nav-container { padding: 16px 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links a:not(.active) { display: none; }
+  .blog-hero { padding: 140px 24px 60px; }
+  .blog-hero h1 { font-size: 38px; }
+  .blog-hero p { font-size: 15px; }
+  .articles-section { padding: 20px 24px 80px; }
+  .article-card { grid-template-columns: 60px 1fr; gap: 20px; padding: 28px 24px; }
+  .article-arrow { display: none; }
+  .article-number { font-size: 36px; }
+  .article-card h2 { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="/" class="nav-logo">AEON</a>
+    <ul class="nav-links">
+      <li><a href="/#products">Products</a></li>
+      <li><a href="/#science">Science</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <p class="blog-eyebrow">AEON Journal</p>
+    <h1>Longevity science, <em>decoded.</em></h1>
+    <p>Evidence-based insights from the frontiers of peptide therapy, healthspan research, and clinical performance. Start with our foundational six-part series on peptides.</p>
+  </div>
+</section>
+
+<section class="articles-section">
+  <div class="articles-list">
+
+    <a href="/blog/01-peptides-101-what-are-peptides-and-how-they-work.html" class="article-card">
+      <div class="article-number">01</div>
+      <div class="article-body">
+        <p class="article-meta">Peptides Explained &middot; 10 min read</p>
+        <h2>Peptides 101: What Are Peptides and How Do They Work?</h2>
+        <p>The foundational guide — what peptides actually are at a molecular level, how they signal to cells, and the major clinical uses across recovery, performance, and longevity.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+    <a href="/blog/02-complete-guide-to-types-of-peptides.html" class="article-card">
+      <div class="article-number">02</div>
+      <div class="article-body">
+        <p class="article-meta">Peptides Explained &middot; 10 min read</p>
+        <h2>The Complete Guide to Types of Peptides</h2>
+        <p>Eight functional categories mapped out, from BPC-157 and TB-500 through GH-releasing peptides, GLP-1 agonists, cognitive peptides, and the longevity frontier.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+    <a href="/blog/03-peptide-myths-debunked.html" class="article-card">
+      <div class="article-number">03</div>
+      <div class="article-body">
+        <p class="article-meta">Peptides Explained &middot; 9 min read</p>
+        <h2>Peptide Myths Debunked</h2>
+        <p>The 12 biggest misconceptions about peptide therapy — that they are steroids, miracle drugs, illegal, or untested — corrected with the actual evidence.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+    <a href="/blog/04-benefits-of-peptide-therapy.html" class="article-card">
+      <div class="article-number">04</div>
+      <div class="article-body">
+        <p class="article-meta">Peptides Explained &middot; 9 min read</p>
+        <h2>The Benefits of Peptide Therapy</h2>
+        <p>Evidence-backed effects on recovery, body composition, sleep, cognition, skin, and longevity — with honest notes on what the data actually supports.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+    <a href="/blog/05-peptides-for-longevity.html" class="article-card">
+      <div class="article-number">05</div>
+      <div class="article-body">
+        <p class="article-meta">Longevity &middot; 11 min read</p>
+        <h2>Peptides for Longevity: The Emerging Science</h2>
+        <p>Epitalon, Thymalin, MOTS-c, FOXO4-DRI, and the senolytic peptides driving the next wave of anti-aging research — mechanisms, evidence, and practical protocols.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+    <a href="/blog/06-how-to-start-using-peptides-safely.html" class="article-card">
+      <div class="article-number">06</div>
+      <div class="article-body">
+        <p class="article-meta">Getting Started &middot; 12 min read</p>
+        <h2>How to Start Using Peptides Safely</h2>
+        <p>A complete beginner's guide to sourcing, reconstitution, injection technique, dosing, cycling, and protocol design — the ten-step framework we recommend.</p>
+      </div>
+      <span class="article-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div class="back-home">
+    <a href="/">← Back to AEON Home</a>
+  </div>
+</section>
+
+<footer>
+  <div>&copy; 2026 AEON Longevity &middot; Clinical Blue &middot; Evidence-Based</div>
+</footer>
+
+</body>
+</html>
