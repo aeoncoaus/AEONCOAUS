@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /peptides/
+
+Sitemap: https://www.aeonco.com.au/sitemap.xml
