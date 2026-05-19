@@ -1120,9 +1120,12 @@ src="https://www.facebook.com/tr?id=1401245241809373&ev=PageView&noscript=1"
       </div>
 
       <form class="waitlist-form" id="waitlistForm" novalidate
-            action="https://formsubmit.co/hello@aeonco.com.au" method="POST">
+            name="waitlist" method="POST" action="/"
+            data-netlify="true" data-netlify-honeypot="bot-field">
+        <!-- Tells Netlify which form this is when posted via AJAX -->
+        <input type="hidden" name="form-name" value="waitlist">
         <!-- Honeypot for spam bots (real users never see this) -->
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
+        <input type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
 
         <div class="form-group">
           <label for="firstName">First Name</label>
@@ -1386,8 +1389,7 @@ src="https://www.facebook.com/tr?id=1401245241809373&ev=PageView&noscript=1"
   const mql = window.matchMedia('(min-width: 969px)');
   mql.addEventListener('change', (e) => { if (e.matches) setOpen(false); });
 
-  // Waitlist form — submits to hello@aeonco.com.au via Formsubmit.co
-  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/hello@aeonco.com.au';
+  // Waitlist form — submits to Netlify Forms (configured to email hello@aeonco.com.au)
   const form = document.getElementById('waitlistForm');
   const success = document.getElementById('successMessage');
   const submitBtn = form.querySelector('.submit-btn');
@@ -1456,24 +1458,21 @@ src="https://www.facebook.com/tr?id=1401245241809373&ev=PageView&noscript=1"
     submitBtn.textContent = 'Sending…';
 
     try {
-      const res = await fetch(FORM_ENDPOINT, {
+      // Netlify Forms accepts URL-encoded POST to the page itself
+      const params = new URLSearchParams();
+      params.append('form-name', 'waitlist');
+      params.append('firstName', firstName.value.trim());
+      params.append('lastName',  lastName.value.trim());
+      params.append('email',     email.value.trim());
+      params.append('bot-field', ''); // honeypot (real users leave empty)
+
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          firstName: firstName.value.trim(),
-          lastName:  lastName.value.trim(),
-          email:     email.value.trim(),
-          _subject:  'New AEON Longevity waitlist signup',
-          _template: 'table',
-          _captcha:  'false'
-        })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
       });
 
       if (!res.ok) throw new Error('Server returned ' + res.status);
-      const data = await res.json().catch(() => ({}));
-      if (data.success === 'false' || data.success === false) {
-        throw new Error(data.message || 'Submission rejected');
-      }
 
       form.style.display = 'none';
       success.classList.add('show');
