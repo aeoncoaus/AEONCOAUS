@@ -3,8 +3,14 @@
 # the values here take precedence on this build).
 
 [build]
-  command   = "npm run build"
+  command   = "npm install --legacy-peer-deps && npm run build"
   publish   = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.18.1"
+  NPM_FLAGS    = "--legacy-peer-deps"
+  # Prevent Next.js from collecting anonymous telemetry during build
+  NEXT_TELEMETRY_DISABLED = "1"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
