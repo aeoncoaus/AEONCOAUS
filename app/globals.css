@@ -739,14 +739,14 @@ body::before {
   flex-direction: column;
 }
 .shop-card-media {
-  /* Light background — product photos will be on white, so blend seamlessly */
-  background: var(--white);
+  /* Warm cream background — matches AEON's branded product photography */
+  background: var(--cream);
   border: 1px solid var(--border-subtle);
   aspect-ratio: 1 / 1;
   margin-bottom: 24px;
   overflow: hidden;
   position: relative;
-  padding: 18px;
+  padding: 14px;
 }
 .shop-card-media img {
   width: 100%;
@@ -873,13 +873,13 @@ body::before {
   align-items: start;
 }
 .product-detail-media {
-  /* Light background — product photos will be on white, so blend seamlessly */
-  background: var(--white);
+  /* Warm cream background — matches AEON's branded product photography */
+  background: var(--cream);
   border: 1px solid var(--border-subtle);
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
-  padding: 32px;
+  padding: 24px;
 }
 .product-detail-media img {
   width: 100%;
