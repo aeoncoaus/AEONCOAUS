@@ -739,22 +739,94 @@ body::before {
   flex-direction: column;
 }
 .shop-card-media {
-  background: var(--panel-tint);
+  /* Light background — product photos will be on white, so blend seamlessly */
+  background: var(--white);
   border: 1px solid var(--border-subtle);
   aspect-ratio: 1 / 1;
   margin-bottom: 24px;
   overflow: hidden;
   position: relative;
+  padding: 18px;
 }
 .shop-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform .5s var(--ease);
 }
 .shop-card:hover .shop-card-media img,
 .shop-card:focus-visible .shop-card-media img {
   transform: scale(1.04);
+}
+
+/* Sold-out card variant */
+.shop-card--soldout .shop-card-media {
+  background: var(--cream);
+}
+.shop-card--soldout .shop-card-media img {
+  opacity: .55;
+  filter: saturate(.6);
+}
+.shop-card--soldout h3,
+.shop-card--soldout p,
+.shop-card--soldout .shop-card-price {
+  opacity: .75;
+}
+.shop-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 9px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* In Stock / Out of Stock section wrappers on the shop page */
+.shop-section {
+  max-width: 1280px;
+  margin: 0 auto 96px;
+}
+.shop-section:last-child { margin-bottom: 0; }
+.shop-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 12px 18px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.shop-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: var(--ink);
+  margin: 0;
+}
+.shop-section--soldout .shop-section-title { color: var(--soot); }
+.shop-section-count {
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--soot-dm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.shop-section-blurb {
+  max-width: 640px;
+  margin: -8px auto 36px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--soot);
+  padding: 0 12px;
+  line-height: 1.7;
 }
 .shop-card-category {
   font-size: 10px;
@@ -801,16 +873,32 @@ body::before {
   align-items: start;
 }
 .product-detail-media {
-  background: var(--panel-tint);
+  /* Light background — product photos will be on white, so blend seamlessly */
+  background: var(--white);
   border: 1px solid var(--border-subtle);
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
+  padding: 32px;
 }
 .product-detail-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+.product-detail-soldout-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 10px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 2px;
+  z-index: 2;
 }
 .product-detail-info {
   padding: 8px 0;
@@ -1857,3 +1945,111 @@ footer {
   .confirmation-actions .btn-primary,
   .confirmation-actions .btn-secondary { width: 100%; }
 }
+
+/* ═══════════════════════════════════════════════════
+   RESTOCK NOTIFY FORM (out-of-stock products)
+   ═══════════════════════════════════════════════ */
+.notify-form {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 28px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.notify-form-head {
+  margin-bottom: 6px;
+}
+.notify-form-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--soot-dm);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.notify-form-head h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.notify-form-head p {
+  font-size: 13px;
+  color: var(--soot);
+  margin: 0;
+  line-height: 1.6;
+}
+.notify-form input[type="email"] {
+  background: var(--white);
+  border: 1px solid var(--border-strong);
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  width: 100%;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.notify-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--gold-text);
+  box-shadow: 0 0 0 3px rgba(184,134,77,.15);
+}
+.notify-form input[type="email"][aria-invalid="true"] {
+  border-color: var(--terracotta);
+}
+.notify-form button {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 14px 22px;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s var(--ease);
+}
+.notify-form button:hover:not(:disabled),
+.notify-form button:focus-visible:not(:disabled) {
+  background: var(--gold-text);
+}
+.notify-form button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.notify-form-error {
+  font-size: 13px;
+  color: var(--terracotta);
+  margin: 0;
+}
+.notify-form-fineprint {
+  font-size: 11px;
+  color: var(--soot-dm);
+  margin: 4px 0 0;
+  line-height: 1.6;
+}
+.notify-success {
+  background: var(--cream);
+  border: 1px solid var(--gold-text);
+  padding: 28px;
+  margin: 24px 0;
+}
+.notify-success h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gold-text);
+  margin: 0 0 10px;
+}
+.notify-success p {
+  font-size: 14px;
+  color: var(--charcoal);
+  margin: 0;
+  line-height: 1.7;
+}
+

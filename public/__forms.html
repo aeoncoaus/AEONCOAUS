@@ -20,5 +20,17 @@
     <input type="text" name="lastName" />
     <input type="email" name="email" />
   </form>
+
+  <!--
+    Restock-notify form. Submitted from out-of-stock product pages via
+    app/components/NotifyForm.tsx. Keep field names in sync.
+  -->
+  <form name="restock-notify" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="restock-notify" />
+    <input type="text" name="bot-field" />
+    <input type="email" name="email" />
+    <input type="text" name="product-slug" />
+    <input type="text" name="product-name" />
+  </form>
 </body>
 </html>

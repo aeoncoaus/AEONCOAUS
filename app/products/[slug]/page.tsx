@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import AddToCartButton from '../../components/AddToCartButton';
+import NotifyForm from '../../components/NotifyForm';
 import { getAllProductSlugs, getProduct } from '../../lib/products';
 import { formatAud } from '../../lib/format';
 
@@ -54,8 +55,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 width={800}
                 height={800}
                 priority
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
+              {!product.inStock && (
+                <span className="product-detail-soldout-badge">Out of Stock</span>
+              )}
             </div>
             <div className="product-detail-info">
               <div className="product-detail-eyebrow">{product.category}</div>
@@ -64,7 +68,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               </h1>
               <div className="product-detail-price">{formatAud(product.priceAud)}</div>
               <p className="product-detail-description">{product.longDescription}</p>
-              <AddToCartButton slug={product.slug} inStock={product.inStock} />
+              {product.inStock ? (
+                <AddToCartButton slug={product.slug} inStock={product.inStock} />
+              ) : (
+                <NotifyForm productSlug={product.slug} productName={product.name} />
+              )}
               <div className="product-detail-disclaimer">
                 For research use only. Not intended for diagnosis, treatment, cure, or prevention
                 of any disease. Not for human consumption unless prescribed by a qualified medical
