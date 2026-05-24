@@ -66,7 +66,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               <h1 id="product-title" className="product-detail-title">
                 {product.name}
               </h1>
-              <div className="product-detail-price">{formatAud(product.priceAud)}</div>
+              <div className="product-detail-price-row">
+                <span className="product-detail-price">{formatAud(product.priceAud)}</span>
+                <span className="pack-chip pack-chip--lg">{product.packSize}</span>
+              </div>
               <p className="product-detail-description">{product.longDescription}</p>
               {product.inStock ? (
                 <AddToCartButton slug={product.slug} inStock={product.inStock} />

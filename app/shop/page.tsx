@@ -39,7 +39,10 @@ function ProductCard({ product, available }: { product: Product; available: bool
       <div className="shop-card-category">{product.category}</div>
       <h3>{product.name}</h3>
       <p>{product.shortDescription}</p>
-      <div className="shop-card-price">{formatAud(product.priceAud)}</div>
+      <div className="shop-card-price-row">
+        <span className="shop-card-price">{formatAud(product.priceAud)}</span>
+        <span className="pack-chip">{product.packSize}</span>
+      </div>
       <span className="shop-card-cta">
         {available ? 'View product' : 'Notify me when back'}
       </span>

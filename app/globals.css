@@ -2053,3 +2053,50 @@ footer {
   line-height: 1.7;
 }
 
+/* ═══════════════════════════════════════════════════
+   PACK-SIZE CHIP (e.g. "10 Vial Pack")
+   ═══════════════════════════════════════════════ */
+.pack-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  background: rgba(184,134,77,.10);
+  border: 1px solid rgba(184,134,77,.30);
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pack-chip--lg {
+  font-size: 11px;
+  padding: 7px 14px;
+}
+
+/* Shop card: price + pack chip side-by-side */
+.shop-card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.shop-card-price-row .shop-card-price {
+  margin-bottom: 0;
+}
+
+/* Product detail: price + pack chip side-by-side */
+.product-detail-price-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.product-detail-price-row .product-detail-price {
+  margin-bottom: 0;
+}
+
+
