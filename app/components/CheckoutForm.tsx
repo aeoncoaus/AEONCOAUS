@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useCart } from '../lib/cart';
 import { formatAud } from '../lib/format';
 import { newOrderId } from '../lib/orders';
+import { packLabel } from '../lib/products';
 
 type PaymentChoice = 'card' | 'bank' | 'crypto';
 
@@ -100,7 +101,7 @@ export default function CheckoutForm() {
     setSubmitting(true);
 
     const body = {
-      items: items.map((i) => ({ slug: i.slug, quantity: i.quantity })),
+      items: items.map((i) => ({ sku: i.sku, quantity: i.quantity })),
       customer: {
         firstName: v.firstName,
         lastName: v.lastName,
@@ -451,21 +452,21 @@ export default function CheckoutForm() {
       <aside className="checkout-summary" aria-label="Order summary">
         <h2>Order summary</h2>
         <ul className="checkout-line-list" role="list">
-          {resolvedItems.map(({ product, quantity, lineTotalCents }) => (
-            <li key={product.slug} className="checkout-line">
+          {resolvedItems.map(({ product, variant, quantity, lineTotalCents }) => (
+            <li key={variant.sku} className="checkout-line">
               <div className="checkout-line-media">
                 <Image
                   src={product.imageUrl}
                   alt=""
                   width={64}
                   height={64}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
               </div>
               <div className="checkout-line-info">
                 <div className="checkout-line-cat">{product.category}</div>
-                <div className="checkout-line-name">{product.name}</div>
-                <div className="checkout-line-qty">Qty {quantity}</div>
+                <div className="checkout-line-name">{product.name} {product.dose}</div>
+                <div className="checkout-line-qty">{packLabel(variant.packSize)} · Qty {quantity}</div>
               </div>
               <div className="checkout-line-total">{formatAud(lineTotalCents)}</div>
             </li>

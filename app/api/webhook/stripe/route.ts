@@ -92,12 +92,22 @@ export async function POST(request: Request) {
           (session.metadata?.customerName as string | undefined) ??
           'Customer';
 
-        const lines: OrderLine[] = lineItems.map((li) => ({
-          name: li.description ?? 'Item',
-          quantity: li.quantity ?? 1,
-          unitPriceCents: li.price?.unit_amount ?? 0,
-          lineTotalCents: li.amount_total ?? 0,
-        }));
+        const lines: OrderLine[] = lineItems.map((li) => {
+          // Stripe stores our product metadata on the underlying product, not the line item.
+          // Pull SKU out where possible; fall back to '' if missing.
+          const prod = li.price?.product;
+          const sku =
+            typeof prod === 'object' && prod !== null && 'metadata' in prod
+              ? ((prod.metadata as Record<string, string> | undefined)?.sku ?? '')
+              : '';
+          return {
+            sku,
+            name: li.description ?? 'Item',
+            quantity: li.quantity ?? 1,
+            unitPriceCents: li.price?.unit_amount ?? 0,
+            lineTotalCents: li.amount_total ?? 0,
+          };
+        });
 
         const totalCents = session.amount_total ?? 0;
         const subtotalCents = session.amount_subtotal ?? totalCents;

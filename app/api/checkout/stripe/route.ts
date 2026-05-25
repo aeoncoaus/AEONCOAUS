@@ -10,6 +10,7 @@
  */
 
 import Stripe from 'stripe';
+import { packLabel } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 // Force Node.js runtime — the Stripe SDK isn't Edge-compatible.
@@ -53,15 +54,15 @@ export async function POST(request: Request) {
       payment_method_types: ['card', 'afterpay_clearpay'],
       currency: 'aud',
       customer_email: payload.customer.email,
-      line_items: resolved.map(({ product, quantity }) => ({
+      line_items: resolved.map(({ product, variant, quantity }) => ({
         quantity,
         price_data: {
           currency: 'aud',
-          unit_amount: product.priceAud,
+          unit_amount: variant.priceAud,
           product_data: {
-            name: product.name,
+            name: `${product.name} ${product.dose} — ${packLabel(variant.packSize)}`,
             description: product.shortDescription,
-            metadata: { slug: product.slug },
+            metadata: { slug: product.slug, sku: variant.sku, packSize: String(variant.packSize) },
           },
         },
       })),

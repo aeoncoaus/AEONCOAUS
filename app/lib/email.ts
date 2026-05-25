@@ -11,6 +11,7 @@ function getResend(): Resend | null {
 }
 
 export type OrderLine = {
+  sku: string;
   name: string;
   quantity: number;
   unitPriceCents: number;

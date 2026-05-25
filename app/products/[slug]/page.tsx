@@ -3,10 +3,13 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
-import AddToCartButton from '../../components/AddToCartButton';
-import NotifyForm from '../../components/NotifyForm';
-import { getAllProductSlugs, getProduct } from '../../lib/products';
-import { formatAud } from '../../lib/format';
+import PackSelector from '../../components/PackSelector';
+import DoseSelector from '../../components/DoseSelector';
+import {
+  getAllProductSlugs,
+  getProduct,
+  getSiblingProducts,
+} from '../../lib/products';
 
 type Params = { slug: string };
 
@@ -22,11 +25,11 @@ export async function generateMetadata(
   if (!product) return { title: 'Product not found' };
 
   return {
-    title: `${product.name} — ${product.category}`,
+    title: `${product.name} ${product.dose} — ${product.category}`,
     description: product.shortDescription,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
-      title: `${product.name} — ${product.category} | AEON Longevity`,
+      title: `${product.name} ${product.dose} | AEON Longevity`,
       description: product.shortDescription,
       url: `/products/${product.slug}`,
       images: [{ url: product.imageUrl }],
@@ -38,6 +41,8 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
+
+  const siblings = getSiblingProducts(product);
 
   return (
     <>
@@ -57,29 +62,28 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 priority
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
-              {!product.inStock && (
-                <span className="product-detail-soldout-badge">Out of Stock</span>
-              )}
             </div>
             <div className="product-detail-info">
               <div className="product-detail-eyebrow">{product.category}</div>
               <h1 id="product-title" className="product-detail-title">
-                {product.name}
+                {product.name} <span className="product-detail-dose">{product.dose}</span>
               </h1>
-              <div className="product-detail-price-row">
-                <span className="product-detail-price">{formatAud(product.priceAud)}</span>
-                <span className="pack-chip pack-chip--lg">{product.packSize}</span>
-              </div>
-              <p className="product-detail-description">{product.longDescription}</p>
-              {product.inStock ? (
-                <AddToCartButton slug={product.slug} inStock={product.inStock} />
-              ) : (
-                <NotifyForm productSlug={product.slug} productName={product.name} />
+
+              {siblings.length > 1 && (
+                <DoseSelector current={product} siblings={siblings} />
               )}
+
+              <p className="product-detail-description">{product.longDescription}</p>
+
+              <PackSelector product={product} />
+
               <div className="product-detail-disclaimer">
-                For research use only. Not intended for diagnosis, treatment, cure, or prevention
-                of any disease. Not for human consumption unless prescribed by a qualified medical
-                practitioner. Store in accordance with the product label.
+                Products supplied by AEON are intended for in-vitro research and laboratory use
+                only. They are not approved by the TGA or any other regulatory body for human
+                consumption, therapeutic use, or any clinical application. Information presented
+                on this site references published research and is provided for educational
+                purposes. Nothing on this site constitutes medical advice. Customers are
+                responsible for compliance with all local laws.
               </div>
             </div>
           </div>

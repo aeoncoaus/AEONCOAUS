@@ -9,28 +9,49 @@ import {
   useState,
   ReactNode,
 } from 'react';
-import { products, Product } from './products';
+import { findVariantBySku, Product, PackVariant } from './products';
 
-const CART_STORAGE_KEY = 'aeon_cart_v1';
+/**
+ * Cart store. Pack-variant aware: items are keyed by full SKU (e.g.
+ * "AEON-BPC-10-5PK"), not by product slug, so customers can buy multiple
+ * pack sizes of the same peptide independently.
+ *
+ * Storage key bumped to v2 to force a clean migration from the legacy
+ * slug-based cart (v1 carries no SKU info, so we drop it on first load).
+ */
+const CART_STORAGE_KEY = 'aeon_cart_v2';
 
 export type CartItem = {
-  slug: string;
+  sku: string;
   quantity: number;
+};
+
+export type ResolvedCartItem = {
+  product: Product;
+  variant: PackVariant;
+  quantity: number;
+  lineTotalCents: number;
 };
 
 type CartContextValue = {
   items: CartItem[];
-  addItem: (slug: string, quantity?: number) => void;
-  removeItem: (slug: string) => void;
-  setQuantity: (slug: string, quantity: number) => void;
+  addItem: (sku: string, quantity?: number) => void;
+  removeItem: (sku: string) => void;
+  setQuantity: (sku: string, quantity: number) => void;
   clear: () => void;
   totalItems: number;
   totalCents: number;
-  resolvedItems: { product: Product; quantity: number; lineTotalCents: number }[];
+  resolvedItems: ResolvedCartItem[];
   isHydrated: boolean;
 };
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
+
+function isCartItem(x: unknown): x is CartItem {
+  if (!x || typeof x !== 'object') return false;
+  const r = x as Record<string, unknown>;
+  return typeof r.sku === 'string' && typeof r.quantity === 'number';
+}
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -42,9 +63,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const raw = localStorage.getItem(CART_STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) setItems(parsed);
+        if (Array.isArray(parsed)) {
+          // Defensive filter — anything that doesn't fit the v2 shape is dropped.
+          setItems(parsed.filter(isCartItem));
+        }
       }
-    } catch (_) {
+    } catch {
       // ignore — fresh cart
     }
     setIsHydrated(true);
@@ -55,51 +79,57 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (!isHydrated) return;
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
-    } catch (_) {
+    } catch {
       // ignore — storage may be disabled
     }
   }, [items, isHydrated]);
 
-  const addItem = useCallback((slug: string, quantity = 1) => {
+  const addItem = useCallback((sku: string, quantity = 1) => {
     setItems((prev) => {
-      const existing = prev.find((i) => i.slug === slug);
+      const existing = prev.find((i) => i.sku === sku);
       if (existing) {
         return prev.map((i) =>
-          i.slug === slug ? { ...i, quantity: i.quantity + quantity } : i,
+          i.sku === sku ? { ...i, quantity: i.quantity + quantity } : i,
         );
       }
-      return [...prev, { slug, quantity }];
+      return [...prev, { sku, quantity }];
     });
   }, []);
 
-  const removeItem = useCallback((slug: string) => {
-    setItems((prev) => prev.filter((i) => i.slug !== slug));
+  const removeItem = useCallback((sku: string) => {
+    setItems((prev) => prev.filter((i) => i.sku !== sku));
   }, []);
 
-  const setQuantity = useCallback((slug: string, quantity: number) => {
+  const setQuantity = useCallback((sku: string, quantity: number) => {
     setItems((prev) => {
-      if (quantity <= 0) return prev.filter((i) => i.slug !== slug);
-      return prev.map((i) => (i.slug === slug ? { ...i, quantity } : i));
+      if (quantity <= 0) return prev.filter((i) => i.sku !== sku);
+      return prev.map((i) => (i.sku === sku ? { ...i, quantity } : i));
     });
   }, []);
 
   const clear = useCallback(() => setItems([]), []);
 
-  const resolvedItems = useMemo(() => {
+  const resolvedItems = useMemo<ResolvedCartItem[]>(() => {
     return items
-      .map((item) => {
-        const product = products.find((p) => p.slug === item.slug);
-        if (!product) return null;
+      .map((item): ResolvedCartItem | null => {
+        const match = findVariantBySku(item.sku);
+        if (!match) return null;
+        // Skip items whose variant has gone out of stock since being added.
+        if (match.variant.status !== 'in_stock') return null;
         return {
-          product,
+          product: match.product,
+          variant: match.variant,
           quantity: item.quantity,
-          lineTotalCents: product.priceAud * item.quantity,
+          lineTotalCents: match.variant.priceAud * item.quantity,
         };
       })
-      .filter((x): x is { product: Product; quantity: number; lineTotalCents: number } => x !== null);
+      .filter((x): x is ResolvedCartItem => x !== null);
   }, [items]);
 
-  const totalItems = useMemo(() => items.reduce((sum, i) => sum + i.quantity, 0), [items]);
+  const totalItems = useMemo(
+    () => resolvedItems.reduce((sum, r) => sum + r.quantity, 0),
+    [resolvedItems],
+  );
   const totalCents = useMemo(
     () => resolvedItems.reduce((sum, r) => sum + r.lineTotalCents, 0),
     [resolvedItems],

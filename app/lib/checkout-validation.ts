@@ -7,9 +7,12 @@
  *
  * IMPORTANT: prices are always looked up server-side from the product
  * catalogue. Never trust client-supplied prices.
+ *
+ * Pack-variant model: items are keyed by full SKU (e.g. "AEON-BPC-10-5PK")
+ * so a single product can be ordered in multiple pack sizes independently.
  */
 
-import { getProduct, Product } from './products';
+import { findVariantBySku, packLabel, Product, PackVariant } from './products';
 import type { OrderLine } from './email';
 
 export type CheckoutShipping = {
@@ -29,7 +32,7 @@ export type CheckoutCustomer = {
 };
 
 export type CheckoutItem = {
-  slug: string;
+  sku: string;
   quantity: number;
 };
 
@@ -39,9 +42,16 @@ export type CheckoutPayload = {
   orderId: string;
 };
 
+export type ResolvedLine = {
+  product: Product;
+  variant: PackVariant;
+  quantity: number;
+  lineTotalCents: number;
+};
+
 export type ResolvedCheckout = {
   payload: CheckoutPayload;
-  resolved: { product: Product; quantity: number; lineTotalCents: number }[];
+  resolved: ResolvedLine[];
   lines: OrderLine[];
   subtotalCents: number;
   totalCents: number;
@@ -90,13 +100,13 @@ export function validateCheckoutPayload(body: unknown): ValidationResult {
       return { ok: false, error: 'Invalid item entry', status: 400 };
     }
     const r = raw as Record<string, unknown>;
-    const slug = trimmed(r.slug);
+    const sku = trimmed(r.sku);
     const quantity = typeof r.quantity === 'number' ? Math.floor(r.quantity) : NaN;
-    if (!slug) return { ok: false, error: 'Item missing slug', status: 400 };
+    if (!sku) return { ok: false, error: 'Item missing SKU', status: 400 };
     if (!Number.isFinite(quantity) || quantity < 1 || quantity > 99) {
-      return { ok: false, error: `Invalid quantity for ${slug}`, status: 400 };
+      return { ok: false, error: `Invalid quantity for ${sku}`, status: 400 };
     }
-    items.push({ slug, quantity });
+    items.push({ sku, quantity });
   }
 
   // ── customer ───────────────────────────────────────────────────────────
@@ -136,25 +146,31 @@ export function validateCheckoutPayload(body: unknown): ValidationResult {
   }
 
   // ── resolve prices server-side ─────────────────────────────────────────
-  const resolved: ResolvedCheckout['resolved'] = [];
+  const resolved: ResolvedLine[] = [];
   const lines: OrderLine[] = [];
   let subtotal = 0;
 
   for (const item of items) {
-    const product = getProduct(item.slug);
-    if (!product) {
-      return { ok: false, error: `Unknown product: ${item.slug}`, status: 400 };
+    const match = findVariantBySku(item.sku);
+    if (!match) {
+      return { ok: false, error: `Unknown SKU: ${item.sku}`, status: 400 };
     }
-    if (!product.inStock) {
-      return { ok: false, error: `${product.name} is out of stock`, status: 400 };
+    if (match.variant.status !== 'in_stock') {
+      return { ok: false, error: `${match.product.name} ${match.product.dose} (${packLabel(match.variant.packSize)}) is out of stock`, status: 400 };
     }
-    const lineTotal = product.priceAud * item.quantity;
+    const lineTotal = match.variant.priceAud * item.quantity;
     subtotal += lineTotal;
-    resolved.push({ product, quantity: item.quantity, lineTotalCents: lineTotal });
-    lines.push({
-      name: product.name,
+    resolved.push({
+      product: match.product,
+      variant: match.variant,
       quantity: item.quantity,
-      unitPriceCents: product.priceAud,
+      lineTotalCents: lineTotal,
+    });
+    lines.push({
+      sku: item.sku,
+      name: `${match.product.name} ${match.product.dose} — ${packLabel(match.variant.packSize)}`,
+      quantity: item.quantity,
+      unitPriceCents: match.variant.priceAud,
       lineTotalCents: lineTotal,
     });
   }

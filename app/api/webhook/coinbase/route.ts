@@ -85,6 +85,7 @@ export async function POST(request: Request) {
       // full order ID for reconciliation.
       const lines: OrderLine[] = [
         {
+          sku: '',
           name: charge.description ?? charge.name ?? 'Order',
           quantity: 1,
           unitPriceCents: totalCents,

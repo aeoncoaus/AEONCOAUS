@@ -8,6 +8,7 @@
  * directly with fetch().
  */
 
+import { packLabel } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 export const runtime = 'nodejs';
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(request.url).origin;
 
   const description = resolved
-    .map((r) => `${r.product.name} × ${r.quantity}`)
+    .map((r) => `${r.product.name} ${r.product.dose} ${packLabel(r.variant.packSize)} × ${r.quantity}`)
     .join(', ');
 
   const charge = {
