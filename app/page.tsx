@@ -2,11 +2,18 @@ import Link from 'next/link';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
+import WaitlistSignup from './components/WaitlistSignup';
 import SmoothScroll from './components/SmoothScroll';
 
 /**
- * Homepage. Markup is a 1:1 migration of index.html — only the hero
- * (waitlist form) is a client component; everything else is static.
+ * Homepage. Restructured (Option A):
+ *   1. HeroSection — intro + 2 CTAs (Shop / Waitlist), no embedded form
+ *   2. Product categories — Peptides links to /shop (live);
+ *      NAD+ / Bundles / Testing show "Coming Soon" linking to #waitlist
+ *   3. WaitlistSignup — moved here from the hero; framed for the
+ *      Coming Soon product lines specifically
+ *   4. Science — stats
+ *   5. Blog — 3 featured articles
  */
 export default function HomePage() {
   return (
@@ -34,7 +41,8 @@ export default function HomePage() {
           </header>
 
           <div className="products-grid">
-            <Link href="/#waitlist" className="product-card">
+            {/* PEPTIDES — LIVE */}
+            <Link href="/shop" className="product-card product-card--live">
               <div className="product-icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <circle cx="12" cy="12" r="3" />
@@ -54,13 +62,15 @@ export default function HomePage() {
               </div>
               <h3>Peptides</h3>
               <p>
-                Pharmaceutical-grade peptides for tissue repair, immune modulation, and metabolic
-                optimization. Every batch third-party tested for purity &gt;99%.
+                Pharmaceutical-grade research peptides for tissue repair, metabolic health,
+                growth-hormone signalling, and longevity protocols. Every batch HPLC-tested for
+                purity &gt;99%.
               </p>
-              <span className="product-tag">Coming Soon</span>
+              <span className="product-tag product-tag--live">Shop Now →</span>
             </Link>
 
-            <Link href="/#waitlist" className="product-card">
+            {/* NAD+ SUPPLEMENTS — COMING SOON */}
+            <Link href="#waitlist" className="product-card product-card--coming">
               <div className="product-icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M2 15c3-3 6-3 9 0s6 3 9 0" />
@@ -80,7 +90,8 @@ export default function HomePage() {
               <span className="product-tag">Coming Soon</span>
             </Link>
 
-            <Link href="/#waitlist" className="product-card">
+            {/* LONGEVITY BUNDLES — COMING SOON */}
+            <Link href="#waitlist" className="product-card product-card--coming">
               <div className="product-icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -95,7 +106,8 @@ export default function HomePage() {
               <span className="product-tag">Coming Soon</span>
             </Link>
 
-            <Link href="/#waitlist" className="product-card">
+            {/* HEALTH TESTING — COMING SOON */}
+            <Link href="#waitlist" className="product-card product-card--coming">
               <div className="product-icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -110,6 +122,11 @@ export default function HomePage() {
             </Link>
           </div>
         </section>
+
+        <div className="section-divider" aria-hidden="true"></div>
+
+        {/* WAITLIST — moved here from the hero, now for the Coming Soon lines */}
+        <WaitlistSignup />
 
         <div className="section-divider" aria-hidden="true"></div>
 

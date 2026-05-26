@@ -8,7 +8,7 @@
  * directly with fetch().
  */
 
-import { packLabel } from '../../../lib/products';
+import { processorLineLabel } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 export const runtime = 'nodejs';
@@ -49,8 +49,9 @@ export async function POST(request: Request) {
   const { payload, resolved, totalCents, customerName } = validation.data;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(request.url).origin;
 
+  // Obfuscated for the same reason as Stripe — see comment in stripe/route.ts
   const description = resolved
-    .map((r) => `${r.product.name} ${r.product.dose} ${packLabel(r.variant.packSize)} × ${r.quantity}`)
+    .map((r) => `${processorLineLabel(r.product.code, r.variant.packSize)} × ${r.quantity}`)
     .join(', ');
 
   const charge = {

@@ -10,7 +10,7 @@
  */
 
 import Stripe from 'stripe';
-import { packLabel } from '../../../lib/products';
+import { processorLineLabel } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 // Force Node.js runtime — the Stripe SDK isn't Edge-compatible.
@@ -54,15 +54,24 @@ export async function POST(request: Request) {
       payment_method_types: ['card', 'afterpay_clearpay'],
       currency: 'aud',
       customer_email: payload.customer.email,
+      // Stripe sees obfuscated SKU-coded labels — never the real peptide name.
+      // Customer-facing emails (sent by our Resend, not Stripe) use the real
+      // product name. This is the "PWA pattern": real names visible for SEO/UX,
+      // generic descriptions on the payment transaction record.
       line_items: resolved.map(({ product, variant, quantity }) => ({
         quantity,
         price_data: {
           currency: 'aud',
           unit_amount: variant.priceAud,
           product_data: {
-            name: `${product.name} ${product.dose} — ${packLabel(variant.packSize)}`,
-            description: product.shortDescription,
-            metadata: { slug: product.slug, sku: variant.sku, packSize: String(variant.packSize) },
+            name: processorLineLabel(product.code, variant.packSize),
+            description: 'Research-grade laboratory compound. For research use only.',
+            metadata: {
+              // Internal-only — these stay in our Stripe dashboard for reconciliation
+              slug: product.slug,
+              sku: variant.sku,
+              packSize: String(variant.packSize),
+            },
           },
         },
       })),
