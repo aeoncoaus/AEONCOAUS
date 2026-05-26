@@ -102,7 +102,7 @@ export const products: Product[] = [
     code: 'AEON-BPC-TB-30',
     name: 'BPC-157 + TB-500 Blend',
     dose: '30mg (15+15)',
-    category: 'Tissue Repair Stack',
+    category: 'Tissue Repair',
     shortDescription: 'Dual-action recovery combination · clinical synergy stack',
     longDescription:
       'A single-vial combination of BPC-157 (15 mg) and Thymosin Beta-4 (TB-500, 15 mg). Frequently co-administered in research for accelerated soft-tissue and vascular repair. Each vial is sterile lyophilised powder; reconstitute with bacteriostatic water. Both peptides HPLC-tested independently. Cold-chain shipped.',
@@ -145,7 +145,7 @@ export const products: Product[] = [
     code: 'AEON-GLOW-70',
     name: 'GLOW',
     dose: '70mg blend',
-    category: 'Skin & Tissue Blend',
+    category: 'Skin & Tissue',
     shortDescription: 'BPC-157 + GHK-Cu + TB-500 · skin & repair stack',
     longDescription:
       'A curated three-peptide blend designed for combined skin remodelling and soft-tissue research. Combines BPC-157, GHK-Cu, and TB-500 in a single 70 mg lyophilised vial. All component peptides HPLC-tested 99% purity. Cold-chain shipped.',
@@ -158,7 +158,7 @@ export const products: Product[] = [
     code: 'AEON-KLOW-80',
     name: 'KLOW',
     dose: '80mg blend',
-    category: 'Skin & Tissue Blend',
+    category: 'Skin & Tissue',
     shortDescription: 'BPC-157 + GHK-Cu + TB-500 + KPV · advanced skin blend',
     longDescription:
       'KLOW is GLOW with the addition of KPV (Lys-Pro-Val tripeptide), researched for its anti-inflammatory profile. Combines four peptides in a single 80 mg lyophilised vial. All component peptides HPLC-tested. Cold-chain shipped.',

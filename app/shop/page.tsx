@@ -74,9 +74,7 @@ export default function ShopPage() {
 
   const categoryOrder: string[] = [
     'Tissue Repair',
-    'Tissue Repair Stack',
     'Skin & Tissue',
-    'Skin & Tissue Blend',
     'GH Releasing',
     'GLP-1 / Metabolic',
     'Longevity & Mitochondrial',
