@@ -21,12 +21,12 @@ Web search during the competitive teardown surfaced a 2026 regulatory finding wo
 
 | # | Item | Delivered |
 |---|---|---|
-| 1 | Real product photography | ✅ Brief + import script — `cowork/AEON-Photography-Execution-Plan-2026-05-26.md` + `.image-build/import-from-brand-assets.js` (local). Awaits Gabriel to generate 14 PNGs via ChatGPT prompts. |
+| 1 | Real product photography | ✅ Brief + import script — `cowork/AEON Operations/AEON-Photography-Execution-Plan-2026-05-26.md` + `.image-build/import-from-brand-assets.js` (local). Awaits Gabriel to generate 14 PNGs via ChatGPT prompts. |
 | 2 | WCAG + Lighthouse audit | ✅ Audit run, 4 bugs fixed in `b6335e5` (heading order, contrast, main landmark, blog font loading). Full perf to-dos captured below. |
 | 3 | Cart & checkout code review | ✅ 16 findings captured, 4 quick wins shipped in `7d6119f` (shipping copy, country field, sessionStorage orderId, friendly errors). 12 remaining as triage list. |
-| 4 | User test brief | ✅ Paste-ready brief for UserTesting.com — `cowork/AEON-User-Test-Brief-2026-05-26.md`. 5 sessions, ~AUD $300–500. |
-| 5 | Copy / microcopy pass | ✅ Suggestions doc with 10 prioritised sections (A–J) — `cowork/AEON-Copy-Pass-Suggestions-2026-05-26.md`. No auto-edits; voice review needed. |
-| 6 | Competitive teardown | ✅ vs Australian Peptides + PeptideConnect (PWA bot-blocked) — `cowork/AEON-Competitive-Teardown-2026-05-26.md`. 5 actionable wins + the regulatory flag above. |
+| 4 | User test brief | ✅ Paste-ready brief for UserTesting.com — `cowork/AEON Operations/AEON-User-Test-Brief-2026-05-26.md`. 5 sessions, ~AUD $300–500. |
+| 5 | Copy / microcopy pass | ✅ Suggestions doc with 10 prioritised sections (A–J) — `cowork/AEON Operations/AEON-Copy-Pass-Suggestions-2026-05-26.md`. No auto-edits; voice review needed. |
+| 6 | Competitive teardown | ✅ vs Australian Peptides + PeptideConnect (PWA bot-blocked) — `cowork/AEON Operations/AEON-Competitive-Teardown-2026-05-26.md`. 5 actionable wins + the regulatory flag above. |
 
 ---
 
@@ -91,7 +91,7 @@ Raw JSON: `.audit/*.json` (gitignored). Mobile-form-factor runs against the prev
 **Brief was already done.** `brand-assets/product-vials/PROMPTS-product-line.md` in cowork has 14 ready-to-paste ChatGPT prompts locked to the "Marble & Gold v3.0" aesthetic. Approved reference: `bpc157-10mg-front.png`.
 
 **What this session added:**
-- **Execution plan**: `C:\Users\gabri\Documents\AEON Operations\AEON-Photography-Execution-Plan-2026-05-26.md` — naming-bridge table, priority generation order, after-generation workflow, stopgap fallback ranking.
+- **Execution plan**: `C:\Users\gabri\cowork\AEON Operations\AEON-Photography-Execution-Plan-2026-05-26.md` — naming-bridge table, priority generation order, after-generation workflow, stopgap fallback ranking.
 - **Import script**: `.image-build/import-from-brand-assets.js` (gitignored per repo convention — image-build scripts live local-only, only the JPG outputs get committed). Maps brand-asset PNG names to catalogue slugs, resizes to 1254×1254, converts to progressive JPEG q=88, drops in `public/products/`. Sibling-dose products share source PNGs (GHK-Cu 50/100 both use `ghkcu-100mg-front.png`; Retatrutide 10/20/40 all use `retatrutide-40mg-front.png`).
 
 **What Gabriel needs to do:**
