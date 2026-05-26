@@ -11,7 +11,7 @@ import {
   getProduct,
   getSiblingProducts,
 } from '../../lib/products';
-import { hasResearchNote } from '../../lib/research';
+import { getResearchSlugForProduct, hasResearchNote } from '../../lib/research';
 
 type Params = { slug: string };
 
@@ -78,7 +78,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               <p className="product-detail-description">{product.longDescription}</p>
 
               {hasResearchNote(product.slug) && (
-                <Link href={`/research/${product.slug}`} className="product-detail-research-link">
+                <Link
+                  href={`/research/${getResearchSlugForProduct(product.slug)}`}
+                  className="product-detail-research-link"
+                >
                   Read research notes <span aria-hidden="true">→</span>
                 </Link>
               )}
