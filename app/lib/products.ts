@@ -355,9 +355,51 @@ export function getShoppableProducts(): Product[] {
   return products.filter((p) => p.packs.some((v) => v.status === 'in_stock'));
 }
 
+/**
+ * Shop-grid cards: one card per peptide.
+ * Multi-dose peptides (Retatrutide, GHK-Cu) collapse to a single card whose
+ * link targets the lowest-dose sibling — PDP dropdown handles dose selection.
+ *
+ * Single-dose peptides return as-is.
+ */
+export function getShopCards(): Product[] {
+  const seen = new Set<string>();
+  const cards: Product[] = [];
+  for (const p of getShoppableProducts()) {
+    if (p.siblingGroup) {
+      if (seen.has(p.siblingGroup)) continue;
+      seen.add(p.siblingGroup);
+      // Pick lowest-dose sibling to represent the group
+      const siblings = products.filter(
+        (sib) => sib.siblingGroup === p.siblingGroup && sib.packs.some((v) => v.status === 'in_stock'),
+      );
+      const lowest = [...siblings].sort((a, b) => {
+        const an = parseInt(a.dose, 10);
+        const bn = parseInt(b.dose, 10);
+        return (Number.isFinite(an) ? an : 0) - (Number.isFinite(bn) ? bn : 0);
+      })[0];
+      cards.push(lowest);
+    } else {
+      cards.push(p);
+    }
+  }
+  return cards;
+}
+
 /** Human-readable label for a pack size. */
 export function packLabel(packSize: PackSize): string {
   if (packSize === 1) return 'Single Vial';
   if (packSize === 5) return '5-Pack';
   return '10-Pack';
+}
+
+/**
+ * Obfuscated product label for payment-processor descriptions (Stripe etc.).
+ * Customer-facing pages and emails always show the real product name; only
+ * the transaction record sent to the processor uses this generic label.
+ *
+ * Format: "AEON-RETA-10 · Research Compound · 5-Pack"
+ */
+export function processorLineLabel(code: string, packSize: PackSize): string {
+  return `${code} · Research Compound · ${packLabel(packSize)}`;
 }

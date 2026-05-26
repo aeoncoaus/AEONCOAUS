@@ -731,8 +731,10 @@ body::before {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2px;
+  /* Cards never stretch beyond 360px even when a category has only 1 item */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  justify-content: center;
+  gap: 24px;
 }
 .shop-card {
   display: flex;

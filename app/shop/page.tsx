@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import { getPackVariant, getShoppableProducts, type Product } from '../lib/products';
+import { getPackVariant, getShopCards, type Product } from '../lib/products';
 import { formatAud } from '../lib/format';
 
 export const metadata: Metadata = {
@@ -21,9 +21,10 @@ export const metadata: Metadata = {
 };
 
 function ProductCard({ product }: { product: Product }) {
-  // Display the default pack price as the "from" price on the card.
-  const defaultVariant = getPackVariant(product, product.defaultPackSize);
-  const tenPack = getPackVariant(product, 10);
+  // "From" price uses the (sold-out) single-vial price — a lower entry-point
+  // psychologically; the 5-Pack chip signals "actually available as a pack".
+  const single = getPackVariant(product, 1);
+  const fivePack = getPackVariant(product, 5);
   return (
     <Link
       href={`/products/${product.slug}`}
@@ -47,13 +48,13 @@ function ProductCard({ product }: { product: Product }) {
         <div className="shop-card-price-stack">
           <span className="shop-card-price-from">From</span>
           <span className="shop-card-price">
-            {defaultVariant ? formatAud(defaultVariant.priceAud) : ''}
+            {single ? formatAud(single.priceAud) : ''}
           </span>
-          <span className="shop-card-price-pack">5-Pack</span>
+          <span className="shop-card-price-pack">Per vial</span>
         </div>
-        {tenPack && (
-          <span className="pack-chip" title="10-Pack — best value">
-            10-Pack {formatAud(tenPack.priceAud)}
+        {fivePack && (
+          <span className="pack-chip" title="Available from 5-Pack">
+            5-Pack {formatAud(fivePack.priceAud)}
           </span>
         )}
       </div>
@@ -63,7 +64,7 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 export default function ShopPage() {
-  const all = getShoppableProducts();
+  const all = getShopCards();
 
   // Group by category for display
   const byCategory = all.reduce<Record<string, Product[]>>((acc, p) => {
