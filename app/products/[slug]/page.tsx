@@ -80,9 +80,15 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               {hasResearchNote(product.slug) && (
                 <Link
                   href={`/research/${getResearchSlugForProduct(product.slug)}`}
-                  className="product-detail-research-link"
+                  className="product-detail-research-card"
                 >
-                  Read research notes <span aria-hidden="true">→</span>
+                  <div className="product-detail-research-card-eyebrow">Research notes</div>
+                  <div className="product-detail-research-card-title">
+                    Mechanism, dosing reference &amp; cycle guidance for {product.name}
+                  </div>
+                  <div className="product-detail-research-card-cta">
+                    Read the research note <span aria-hidden="true">→</span>
+                  </div>
                 </Link>
               )}
 

@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   },
 };
 
+/** URL-safe slug for category anchors (#cat-tissue-repair etc). */
+function catSlug(cat: string): string {
+  return cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function ProductCard({ product }: { product: Product }) {
   // "From" price uses the (sold-out) single-vial price — a lower entry-point
   // psychologically; the 5-Pack chip signals "actually available as a pack".
@@ -58,7 +63,9 @@ function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </div>
-      <span className="shop-card-cta">View product</span>
+      <span className="shop-card-cta">
+        View product <span className="shop-card-cta-arrow" aria-hidden="true">→</span>
+      </span>
     </Link>
   );
 }
@@ -103,12 +110,21 @@ export default function ShopPage() {
             </h1>
             <p className="section-subtitle">
               Pharmaceutical-grade compounds, third-party HPLC tested and shipped cold-chain from
-              Australia. All products available as 5-Pack or 10-Pack — bulk packs only.
+              Australia.
             </p>
           </header>
 
+          <nav className="shop-category-nav" aria-label="Jump to category">
+            {orderedCats.map((cat) => (
+              <a key={cat} href={`#cat-${catSlug(cat)}`} className="shop-category-chip">
+                <span>{cat}</span>
+                <span className="shop-category-chip-count">{byCategory[cat].length}</span>
+              </a>
+            ))}
+          </nav>
+
           {orderedCats.map((cat) => (
-            <div className="shop-section" key={cat}>
+            <div className="shop-section" key={cat} id={`cat-${catSlug(cat)}`}>
               <div className="shop-section-head">
                 <h2 className="shop-section-title">{cat}</h2>
                 <span className="shop-section-count">

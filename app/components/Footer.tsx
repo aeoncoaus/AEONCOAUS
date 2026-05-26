@@ -61,9 +61,8 @@ export default function Footer() {
         <nav className="footer-section" aria-label="Footer navigation">
           <h3>Navigate</h3>
           <ul>
-            <li><Link href="/#products">Products</Link></li>
-            <li><Link href="/shop">Shop</Link></li>
-            <li><Link href="/#science">Science</Link></li>
+            <li><Link href="/shop">Products</Link></li>
+            <li><Link href="/research">Science</Link></li>
             <li><Link href="/#blog">Blog</Link></li>
             <li><Link href="/#waitlist">Waitlist</Link></li>
           </ul>

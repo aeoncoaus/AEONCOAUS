@@ -29,9 +29,8 @@ export default function Nav() {
             <span className="nav-toggle-bar" aria-hidden="true"></span>
           </button>
           <ul className="nav-links" id="primary-nav">
-            <li><Link href="/#products">Products</Link></li>
-            <li><Link href="/shop">Shop</Link></li>
-            <li><Link href="/#science">Science</Link></li>
+            <li><Link href="/shop">Products</Link></li>
+            <li><Link href="/research">Science</Link></li>
             <li><Link href="/#blog">Blog</Link></li>
             <li><Link href="/#waitlist">Waitlist</Link></li>
             <li><Link href="/#contact">Contact</Link></li>

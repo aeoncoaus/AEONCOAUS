@@ -329,8 +329,8 @@ body::before {
   z-index: 2;
   background: var(--panel-strong);
   padding: 80px 72px;
-  border: 1px solid var(--border);
-  box-shadow: 0 12px 56px rgba(0,0,0,.10);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 24px rgba(0,0,0,.05);
 }
 
 .hero-eyebrow {
@@ -815,11 +815,14 @@ body::before {
 .shop-section--soldout .shop-section-title { color: var(--soot); }
 .shop-section-count {
   font-size: 11px;
-  letter-spacing: .24em;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--soot-dm);
-  font-weight: 600;
+  color: var(--gold-text);
+  font-weight: 500;
   white-space: nowrap;
+  padding: 4px 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--cream);
 }
 .shop-section-blurb {
   max-width: 640px;
@@ -2304,8 +2307,8 @@ footer {
    HERO — slim mode (no embedded form)
    ═══════════════════════════════════════════════ */
 .hero-content--compact {
-  padding: 64px 56px;
-  max-width: 880px;
+  padding: 72px 88px;
+  max-width: 1280px;
 }
 .hero-cta-row {
   display: flex;
@@ -2407,7 +2410,7 @@ footer {
 /* Hero */
 .research-hero {
   position: relative;
-  padding: 160px 32px 64px;
+  padding: 128px 32px 40px;
   background: var(--ivory);
   overflow: hidden;
 }
@@ -2484,6 +2487,36 @@ footer {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Scroll affordance — sits just below the CTA row to signal there's more below */
+.research-hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-decoration: none;
+  transition: color .2s var(--ease);
+}
+.research-hero-scroll:hover,
+.research-hero-scroll:focus-visible {
+  color: var(--ink);
+}
+.research-hero-scroll-chevron {
+  font-size: 16px;
+  animation: scrollHint 2.2s ease-in-out infinite;
+  transition: transform .2s var(--ease);
+}
+@keyframes scrollHint {
+  0%, 100% { transform: translateY(0); opacity: .6; }
+  50%      { transform: translateY(4px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-hero-scroll-chevron { animation: none; }
 }
 
 /* Section / general */
@@ -2794,25 +2827,43 @@ footer {
   color: var(--soot);
 }
 
-/* PDP link to research */
-.product-detail-research-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  font-size: 14px;
-  letter-spacing: .04em;
-  color: var(--gold-text);
+/* PDP callout card linking to research notes */
+.product-detail-research-card {
+  display: block;
+  margin: 24px 0 8px;
+  padding: 20px 24px;
+  background: var(--cream);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid var(--gold);
-  padding-bottom: 2px;
-  align-self: flex-start;
-  width: max-content;
-  transition: color .2s var(--ease);
+  color: inherit;
+  transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
 }
-.product-detail-research-link:hover,
-.product-detail-research-link:focus-visible {
+.product-detail-research-card:hover,
+.product-detail-research-card:focus-visible {
+  transform: translateX(2px);
+  border-left-color: var(--gold-dk);
+  background: var(--ivory);
+}
+.product-detail-research-card-eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 6px;
+}
+.product-detail-research-card-title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 18px;
+  line-height: 1.3;
   color: var(--ink);
+  margin-bottom: 10px;
+}
+.product-detail-research-card-cta {
+  font-size: 13px;
+  letter-spacing: .06em;
+  font-weight: 500;
+  color: var(--gold-text);
 }
 
 /* Mobile */
@@ -2835,5 +2886,146 @@ footer {
     border-bottom: 1px solid var(--border-subtle);
   }
   .research-at-a-glance li:last-child { border-bottom: none; }
+}
+
+/* ═══════════════════════════════════════════════════
+   /research INDEX PAGE — grid of all published notes
+   Mirrors shop-section grouping. Cards link to /research/[slug].
+   ═══════════════════════════════════════════════ */
+.research-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.research-index-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 30px;
+  background: var(--panel);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.research-index-card:hover,
+.research-index-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+.research-index-card-eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 10px;
+}
+.research-index-card-title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 24px;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.research-index-card-dose {
+  font-size: 15px;
+  color: var(--gold-text);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.research-index-card-subtitle {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--gold-text);
+}
+.research-index-card-subtitle em {
+  font-style: italic;
+  font-weight: 400;
+}
+.research-index-card-excerpt {
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--charcoal);
+  flex-grow: 1;
+}
+.research-index-card-cta {
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 500;
+}
+
+/* Science section CTA into /research */
+.science-cta {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════════
+   SHOP CATEGORY NAV — pill row at the top of /shop,
+   anchors to each shop-section via #cat-<slug>.
+   ═══════════════════════════════════════════════ */
+.shop-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 0 12px;
+}
+.shop-category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border-subtle);
+  color: var(--charcoal);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: .04em;
+  font-weight: 500;
+  transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.shop-category-chip:hover,
+.shop-category-chip:focus-visible {
+  background: var(--cream);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+.shop-category-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Shop card CTA arrow — nudges on card hover */
+.shop-card-cta-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform .25s var(--ease);
+}
+.shop-card:hover .shop-card-cta-arrow,
+.shop-card:focus-visible .shop-card-cta-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 580px) {
+  .shop-category-nav { gap: 8px; }
+  .shop-category-chip { padding: 8px 14px; font-size: 12px; }
 }
 

@@ -285,6 +285,11 @@ function ResearchHero({ note, peptideName }: { note: ResearchNote; peptideName: 
             Jump to FAQ
           </a>
         </div>
+
+        <a href="#overview-title" className="research-hero-scroll" aria-label="Continue reading">
+          <span>Continue reading</span>
+          <span className="research-hero-scroll-chevron" aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
   );

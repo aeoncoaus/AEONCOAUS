@@ -156,6 +156,12 @@ export default function HomePage() {
               <div className="stat-label">Party Tested</div>
             </div>
           </div>
+
+          <div className="science-cta">
+            <Link href="/research" className="hero-cta-secondary">
+              Read the research notes →
+            </Link>
+          </div>
         </section>
 
         <div className="section-divider" aria-hidden="true"></div>
