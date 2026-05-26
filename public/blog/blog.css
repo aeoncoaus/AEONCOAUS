@@ -1,0 +1,409 @@
+/*
+ * Shared stylesheet for /public/blog/ pages.
+ *
+ * Mirrors the AEON design tokens used in app/globals.css so the static
+ * blog pages feel like part of the same site as the Next.js shop.
+ * Linked from every blog post HTML and from blog/index.html.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+:root {
+  /* AEON design tokens — kept in sync with app/globals.css */
+  --marble:        #E8E6E1;
+  --stone:         #D4CFC7;
+  --cream:         #F7F3EC;
+  --ivory:         #FBF8F3;
+  --white:         #FFFFFF;
+
+  --gold:          #D4A574;
+  --gold-lt:       #E8C89A;
+  --gold-dk:       #B8864D;
+  --gold-text:     #7A5A30;
+  --bronze:        #9D7348;
+
+  --charcoal:      #3D3935;
+  --ink:           #2A2622;
+  --soot:          #4F4A45;
+  --soot-dm:       #6B6560;
+  --mute:          #8A847D;
+
+  --border:        rgba(122,90,48,.30);
+  --border-subtle: rgba(122,90,48,.20);
+
+  --ease:          cubic-bezier(.2, .7, .2, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+  transition: color .2s var(--ease);
+}
+a:hover, a:focus-visible { color: var(--ink); }
+
+strong { color: var(--ink); }
+em     { font-style: italic; }
+hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 48px 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   NAV BAR  (used on both index and post pages — static
+   HTML version of the AEON nav. Kept minimal so we don't
+   need to mirror cart / hamburger state.)
+   ═══════════════════════════════════════════════ */
+.blog-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(251,248,243,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.blog-nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.blog-nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  color: var(--ink);
+  text-decoration: none;
+  border: none;
+  padding: 0;
+}
+.blog-nav-logo:hover, .blog-nav-logo:focus-visible { color: var(--gold-text); }
+.blog-nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+.blog-nav-links a {
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--soot);
+  border: none;
+  padding: 0;
+  font-weight: 500;
+}
+.blog-nav-links a:hover,
+.blog-nav-links a:focus-visible,
+.blog-nav-links a.active { color: var(--gold-text); }
+
+@media (max-width: 768px) {
+  .blog-nav-container { padding: 14px 24px; }
+  .blog-nav-links { gap: 18px; }
+  .blog-nav-links a:not(.active) { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════
+   POST PAGES  (01-06)
+   ═══════════════════════════════════════════════ */
+article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 140px 24px 80px;
+}
+article > header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+article h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.015em;
+  color: var(--ink);
+  margin: 12px 0 16px;
+}
+
+article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 56px 0 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--gold);
+}
+article h2.faq {
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 48px;
+  margin-top: 64px;
+}
+
+article h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  margin: 32px 0 12px;
+}
+
+article p {
+  margin: 0 0 18px;
+  color: var(--charcoal);
+}
+
+article ul, article ol { margin: 0 0 20px 24px; }
+article li { margin: 8px 0; }
+article ul li::marker { color: var(--gold); }
+article ol li::marker { color: var(--gold-text); font-weight: 500; }
+
+/* Category eyebrow on post pages */
+.meta {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 500;
+  margin: 0 0 8px;
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--cream);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Back-to-AEON link as pill chip */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--soot);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.back-link:hover, .back-link:focus-visible {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* ═══════════════════════════════════════════════════
+   INDEX PAGE  (/blog/)
+   ═══════════════════════════════════════════════ */
+.blog-hero {
+  padding: 180px 48px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--ivory);
+}
+.blog-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(212,165,116,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.blog-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.blog-eyebrow {
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.blog-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+.blog-hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-text);
+}
+.blog-hero p {
+  font-size: 17px;
+  color: var(--soot);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.articles-section {
+  padding: 32px 48px 120px;
+  background: var(--ivory);
+}
+.articles-list {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.article-card {
+  background: var(--panel, var(--white));
+  border: 1px solid var(--border-subtle);
+  padding: 36px 40px;
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  transition: border-color .3s, background .3s, transform .3s;
+  position: relative;
+  overflow: hidden;
+}
+.article-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .3s var(--ease);
+}
+.article-card:hover, .article-card:focus-visible {
+  border-color: var(--border);
+  background: var(--cream);
+  transform: translateX(2px);
+}
+.article-card:hover::before, .article-card:focus-visible::before { transform: scaleY(1); }
+
+.article-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold-text);
+  line-height: 1;
+}
+.article-body { min-width: 0; }
+.article-meta {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.article-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+  font-weight: 500;
+  border: none;
+  padding: 0;
+}
+.article-card p {
+  font-size: 14.5px;
+  color: var(--soot);
+  line-height: 1.55;
+  border: none;
+  padding: 0;
+}
+.article-arrow {
+  color: var(--gold-text);
+  font-size: 20px;
+  transition: transform .3s;
+}
+.article-card:hover .article-arrow,
+.article-card:focus-visible .article-arrow { transform: translateX(4px); }
+
+.back-home {
+  text-align: center;
+  margin-top: 48px;
+}
+.back-home a {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--soot);
+  border: none;
+  padding: 0;
+  font-weight: 500;
+}
+.back-home a:hover, .back-home a:focus-visible { color: var(--ink); }
+
+footer {
+  background: var(--cream);
+  border-top: 1px solid var(--border-subtle);
+  padding: 32px 48px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--soot);
+  letter-spacing: .04em;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  article { padding: 120px 20px 60px; }
+  article h1 { font-size: 30px; }
+  article h2 { font-size: 22px; margin-top: 40px; }
+  article h3 { font-size: 17px; margin-top: 24px; }
+
+  .blog-hero { padding: 140px 24px 48px; }
+  .articles-section { padding: 16px 24px 80px; }
+  .article-card {
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    padding: 24px 22px;
+  }
+  .article-arrow { display: none; }
+  .article-number { font-size: 36px; }
+  .article-card h2 { font-size: 17px; }
+}
