@@ -1,9 +1,32 @@
 # AEON Shop — Session Handover
 
-**Last updated:** 2026-05-26 (mid-session — context limit approaching, cart/checkout audit captured for next session pickup)
-**Branch:** `feat/shop-nextjs` (PR #6) at `b6335e5` — clean, pushed, no uncommitted work
+**Last updated:** 2026-05-26 (end of session — all 6 priority-list items delivered)
+**Branch:** `feat/shop-nextjs` (PR #6) at `7d6119f` — clean, pushed, no uncommitted work
 **Netlify site slug:** `aeonco` → previews at `https://deploy-preview-6--aeonco.netlify.app`
 **Production domain:** `aeonco.com.au`
+
+---
+
+## 🚨 BLOCKER from this session — read first
+
+Web search during the competitive teardown surfaced a 2026 regulatory finding worth flagging at the top of this doc:
+
+> One source claims **BPC-157 was reclassified to Schedule 9 (prohibited substance)** in Australia under 2026 reforms — making import/possession/sale illegal without a TGA permit. Other sources still place it as Schedule 4. Domestic competitors keep selling it openly, suggesting either Schedule 4 still applies or enforcement is loose.
+
+**Action:** book a 1-hour regulatory-lawyer consult BEFORE wiring live Stripe keys or running paid Meta acquisition. ~AUD $300–500 cost; trivial vs the consequences of getting it wrong. Full context in `cowork/AEON Operations/AEON-Competitive-Teardown-2026-05-26.md` and the existing-but-unactioned `TGA-Compliance-Analysis-Handom-2026-05-25-pending.md`.
+
+---
+
+## What this session delivered (the 6-item priority list)
+
+| # | Item | Delivered |
+|---|---|---|
+| 1 | Real product photography | ✅ Brief + import script — `cowork/AEON-Photography-Execution-Plan-2026-05-26.md` + `.image-build/import-from-brand-assets.js` (local). Awaits Gabriel to generate 14 PNGs via ChatGPT prompts. |
+| 2 | WCAG + Lighthouse audit | ✅ Audit run, 4 bugs fixed in `b6335e5` (heading order, contrast, main landmark, blog font loading). Full perf to-dos captured below. |
+| 3 | Cart & checkout code review | ✅ 16 findings captured, 4 quick wins shipped in `7d6119f` (shipping copy, country field, sessionStorage orderId, friendly errors). 12 remaining as triage list. |
+| 4 | User test brief | ✅ Paste-ready brief for UserTesting.com — `cowork/AEON-User-Test-Brief-2026-05-26.md`. 5 sessions, ~AUD $300–500. |
+| 5 | Copy / microcopy pass | ✅ Suggestions doc with 10 prioritised sections (A–J) — `cowork/AEON-Copy-Pass-Suggestions-2026-05-26.md`. No auto-edits; voice review needed. |
+| 6 | Competitive teardown | ✅ vs Australian Peptides + PeptideConnect (PWA bot-blocked) — `cowork/AEON-Competitive-Teardown-2026-05-26.md`. 5 actionable wins + the regulatory flag above. |
 
 ---
 
