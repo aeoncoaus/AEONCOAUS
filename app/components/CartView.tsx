@@ -105,7 +105,7 @@ export default function CartView() {
         </div>
         <div className="cart-summary-row muted">
           <span>Shipping</span>
-          <span>Free (calculated at checkout)</span>
+          <span>Free within Australia</span>
         </div>
         <div className="cart-summary-row total">
           <span>Total</span>

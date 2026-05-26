@@ -3013,6 +3013,21 @@ footer {
   letter-spacing: 0;
 }
 
+/* Inline note replacing the disabled 'Country: Australia' field */
+.checkout-country-note {
+  font-size: 13px;
+  color: var(--soot);
+  margin-top: 4px;
+  padding: 12px 16px;
+  background: var(--cream);
+  border-left: 2px solid var(--gold);
+}
+.checkout-country-note a {
+  color: var(--gold-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Shop card CTA arrow — nudges on card hover */
 .shop-card-cta-arrow {
   display: inline-block;

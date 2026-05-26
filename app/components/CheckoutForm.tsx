@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useMemo, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../lib/cart';
@@ -42,8 +42,21 @@ export default function CheckoutForm() {
   const [submitting, setSubmitting] = useState(false);
   const [networkError, setNetworkError] = useState<string | null>(null);
 
-  // Generate orderId once per mount so retries reuse the same reference.
-  const orderId = useMemo(() => newOrderId(), []);
+  // Persist orderId across navigation so bank-transfer references match if
+  // the user navigates away and returns mid-flow. Cleared on success path.
+  const ORDER_KEY = 'aeon.checkout.orderId';
+  const [orderId, setOrderId] = useState<string>('');
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const existing = sessionStorage.getItem(ORDER_KEY);
+    if (existing) {
+      setOrderId(existing);
+    } else {
+      const fresh = newOrderId();
+      sessionStorage.setItem(ORDER_KEY, fresh);
+      setOrderId(fresh);
+    }
+  }, []);
 
   const refs = {
     firstName: useRef<HTMLInputElement>(null),
@@ -158,14 +171,26 @@ export default function CheckoutForm() {
       window.location.href = `/checkout/bank-pending?id=${encodeURIComponent(id)}`;
     } catch (err) {
       console.error('Checkout submission failed', err);
-      setNetworkError(
-        err instanceof Error
-          ? err.message
-          : 'Something went wrong. Please try again or email hello@aeonco.com.au.',
-      );
+      setNetworkError(friendlyError(err));
       setSubmitting(false);
     }
   };
+
+  /**
+   * Map raw errors (mostly fetch failures) to user-friendly copy.
+   * Server-returned errors are already wrapped in friendly text on the
+   * API side, so this primarily handles the "no network" case.
+   */
+  function friendlyError(err: unknown): string {
+    const raw = err instanceof Error ? err.message : '';
+    if (!raw) {
+      return 'Something went wrong. Please try again or email hello@aeonco.com.au.';
+    }
+    if (/failed to fetch|networkerror|load failed|network request failed/i.test(raw)) {
+      return 'Network error — please check your connection and try again.';
+    }
+    return raw;
+  }
 
   // ── Empty-cart guard ─────────────────────────────────────────────────────
   if (isHydrated && items.length === 0) {
@@ -350,18 +375,10 @@ export default function CheckoutForm() {
             </div>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              name="country"
-              value="Australia"
-              disabled
-              readOnly
-              style={{ opacity: 0.7 }}
-            />
-          </div>
+          <p className="checkout-country-note">
+            Shipping to Australia only. International orders coming soon —
+            join the <a href="/#waitlist">waitlist</a> to be notified.
+          </p>
         </section>
 
         <section className="checkout-section" aria-labelledby="payment-heading">
@@ -479,7 +496,7 @@ export default function CheckoutForm() {
         </div>
         <div className="cart-summary-row muted">
           <span>Shipping</span>
-          <span>Calculated at next step</span>
+          <span>Free within Australia</span>
         </div>
         <div className="cart-summary-row total">
           <span>Total</span>
