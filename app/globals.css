@@ -2479,7 +2479,7 @@ footer {
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--soot-dm);
   margin-top: 6px;
 }
 .research-hero-ctas {
@@ -2498,7 +2498,7 @@ footer {
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--soot-dm);
   text-decoration: none;
   transition: color .2s var(--ease);
 }
@@ -2786,7 +2786,7 @@ footer {
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--soot-dm);
   margin-bottom: 8px;
 }
 .research-cross-sell-card h3 {
@@ -2919,7 +2919,7 @@ footer {
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--soot-dm);
   margin-bottom: 10px;
 }
 .research-index-card-title {

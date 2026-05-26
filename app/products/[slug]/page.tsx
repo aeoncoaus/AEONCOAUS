@@ -66,6 +66,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               />
             </div>
             <div className="product-detail-info">
+              <h2 className="sr-only">Product details</h2>
               <div className="product-detail-eyebrow">{product.category}</div>
               <h1 id="product-title" className="product-detail-title">
                 {product.name} <span className="product-detail-dose">{product.dose}</span>
