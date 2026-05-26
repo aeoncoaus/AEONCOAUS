@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -10,6 +11,7 @@ import {
   getProduct,
   getSiblingProducts,
 } from '../../lib/products';
+import { hasResearchNote } from '../../lib/research';
 
 type Params = { slug: string };
 
@@ -74,6 +76,12 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               )}
 
               <p className="product-detail-description">{product.longDescription}</p>
+
+              {hasResearchNote(product.slug) && (
+                <Link href={`/research/${product.slug}`} className="product-detail-research-link">
+                  Read research notes <span aria-hidden="true">→</span>
+                </Link>
+              )}
 
               <PackSelector product={product} />
 

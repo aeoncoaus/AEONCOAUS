@@ -2398,6 +2398,442 @@ footer {
   .waitlist-section .waitlist-container { padding: 32px 24px; }
 }
 
+/* ═══════════════════════════════════════════════════
+   RESEARCH NOTES — /research/[slug]
+   Sales-driven layout. Hero → at-a-glance → 2-col body
+   → protocol cards → FAQ → CTA banner → cross-sell.
+   ═══════════════════════════════════════════════ */
 
+/* Hero */
+.research-hero {
+  position: relative;
+  padding: 160px 32px 64px;
+  background: var(--ivory);
+  overflow: hidden;
+}
+.research-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 80% 0%, rgba(212,165,116,.10), transparent 70%),
+    radial-gradient(60% 50% at 0% 100%, rgba(212,165,116,.06), transparent 70%);
+  pointer-events: none;
+}
+.research-hero-content {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+.research-hero-title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 16px 0 12px;
+}
+.research-hero-subtitle {
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--gold-text);
+  margin: 0 auto 32px;
+  max-width: 640px;
+}
+.research-hero-subtitle em {
+  font-style: italic;
+  font-weight: 400;
+}
+.research-at-a-glance {
+  list-style: none;
+  padding: 0;
+  margin: 32px auto 36px;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid var(--border-subtle);
+  background: var(--panel);
+  max-width: 760px;
+}
+.research-at-a-glance li {
+  flex: 1 1 0;
+  min-width: 180px;
+  padding: 20px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border-subtle);
+}
+.research-at-a-glance li:last-child {
+  border-right: none;
+}
+.research-at-a-glance-value {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+.research-at-a-glance-label {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-top: 6px;
+}
+.research-hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+/* Section / general */
+.research-section { scroll-margin-top: 80px; }
+.research-block-header { margin-bottom: 20px; }
+.research-block-title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -.015em;
+  color: var(--ink);
+  margin: 6px 0 0;
+}
+.research-paragraph {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+  max-width: 68ch;
+}
+
+/* Pullquote */
+.research-pullquote {
+  margin: 36px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--gold);
+  background: var(--cream);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.4;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* Two-col grid */
+.research-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 56px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.research-col-main { min-width: 0; }
+.research-col-aside { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 96px; }
+
+/* Findings cards */
+.research-findings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+.research-finding-card {
+  padding: 22px 24px;
+  background: var(--panel);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--gold);
+}
+.research-finding-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+/* Aside cards (dosing, use cases) */
+.research-aside-card {
+  padding: 24px 26px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border-subtle);
+}
+.research-aside-card .section-eyebrow { margin-bottom: 14px; }
+.research-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.research-bullets li {
+  position: relative;
+  padding: 8px 0 8px 18px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.research-bullets li:last-child { border-bottom: none; }
+.research-bullets li::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* Dosing card */
+.research-dosing-card .research-dosing-list {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+.research-dosing-list > div {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.research-dosing-list > div:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.research-dosing-list dt {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 4px;
+}
+.research-dosing-list dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Protocol grid */
+.research-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.research-protocol-card {
+  padding: 28px 30px;
+  background: var(--cream);
+  border: 1px solid var(--border-subtle);
+}
+.research-protocol-label {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 10px;
+}
+.research-protocol-card p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+/* FAQ */
+.research-faq {
+  max-width: 820px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border-subtle);
+}
+.research-faq-item {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0;
+}
+.research-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.research-faq-item summary::-webkit-details-marker { display: none; }
+.research-faq-item summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gold-text);
+  transition: transform .2s var(--ease);
+}
+.research-faq-item[open] summary::after {
+  content: '−';
+}
+.research-faq-item p {
+  margin: 0 8px 22px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  max-width: 68ch;
+}
+.research-faq-stub {
+  color: var(--mute);
+  font-style: italic;
+}
+.research-faq-stub a {
+  color: var(--gold-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* CTA banner */
+.research-cta-banner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px;
+  background: var(--ink);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.research-cta-banner h2 {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2;
+  margin: 6px 0 8px;
+  color: var(--cream);
+}
+.research-cta-banner p {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(247, 243, 236, .75);
+  max-width: 540px;
+}
+.research-cta-banner .section-eyebrow {
+  color: var(--gold-lt);
+}
+.research-cta-banner .hero-cta-primary {
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.research-cta-banner .hero-cta-primary:hover,
+.research-cta-banner .hero-cta-primary:focus-visible {
+  background: var(--gold-lt);
+  border-color: var(--gold-lt);
+}
+
+/* Cross-sell rail */
+.research-cross-sell {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.research-cross-sell-card {
+  display: block;
+  padding: 24px 26px;
+  background: var(--panel);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s var(--ease), border-color .2s var(--ease);
+}
+.research-cross-sell-card:hover,
+.research-cross-sell-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+.research-cross-sell-eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 8px;
+}
+.research-cross-sell-card h3 {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.research-cross-sell-dose {
+  font-size: 14px;
+  color: var(--gold-text);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.research-cross-sell-card p {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--charcoal);
+}
+.research-cross-sell-cta {
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.research-disclaimer {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  border: 1px solid var(--border-subtle);
+  background: var(--cream);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--soot);
+}
+
+/* PDP link to research */
+.product-detail-research-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 14px;
+  letter-spacing: .04em;
+  color: var(--gold-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+  align-self: flex-start;
+  width: max-content;
+  transition: color .2s var(--ease);
+}
+.product-detail-research-link:hover,
+.product-detail-research-link:focus-visible {
+  color: var(--ink);
+}
+
+/* Mobile */
+@media (max-width: 968px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .research-col-aside {
+    position: static;
+  }
+  .research-hero { padding: 140px 24px 48px; }
+  .research-cta-banner {
+    padding: 32px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .research-at-a-glance li {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .research-at-a-glance li:last-child { border-bottom: none; }
+}
 
