@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import { getPackVariant, getShopCards, type Product } from '../lib/products';
+import { getPackVariant, getShopCards, getSiblingProducts, type Product } from '../lib/products';
 import { formatAud } from '../lib/format';
 
 export const metadata: Metadata = {
@@ -30,6 +30,19 @@ function ProductCard({ product }: { product: Product }) {
   // psychologically; the 5-Pack chip signals "actually available as a pack".
   const single = getPackVariant(product, 1);
   const fivePack = getPackVariant(product, 5);
+
+  // Multi-dose peptides (Retatrutide, GHK-Cu) collapse to one card whose
+  // product is the lowest dose. Surface every available dose so the card
+  // makes the range obvious; the PDP dose dropdown handles selection.
+  const siblings = getSiblingProducts(product);
+  const multiDose = siblings.length > 1;
+  const doseLabel = multiDose
+    ? [...siblings]
+        .sort((a, b) => (parseInt(a.dose, 10) || 0) - (parseInt(b.dose, 10) || 0))
+        .map((s) => s.dose)
+        .join(' · ')
+    : product.dose;
+
   return (
     <Link
       href={`/products/${product.slug}`}
@@ -46,7 +59,10 @@ function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="shop-card-category">{product.category}</div>
       <h3>
-        {product.name} <span className="shop-card-dose">{product.dose}</span>
+        {product.name} <span className="shop-card-dose">{doseLabel}</span>
+        {multiDose && (
+          <span className="shop-card-dose-count">{siblings.length} sizes</span>
+        )}
       </h3>
       <p>{product.shortDescription}</p>
       <div className="shop-card-price-row">
@@ -59,7 +75,7 @@ function ProductCard({ product }: { product: Product }) {
         </div>
         {fivePack && (
           <span className="pack-chip" title="Available from 5-Pack">
-            5-Pack {formatAud(fivePack.priceAud)}
+            5-Pack {multiDose ? 'from ' : ''}{formatAud(fivePack.priceAud)}
           </span>
         )}
       </div>
