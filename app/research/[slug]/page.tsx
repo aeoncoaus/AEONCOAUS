@@ -61,9 +61,6 @@ export default async function ResearchPage({ params }: { params: Promise<Params>
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <ResearchHero note={note} peptideName={peptideName} />

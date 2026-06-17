@@ -52,9 +52,6 @@ export default function ResearchIndexPage() {
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section className="section" style={{ paddingTop: 180 }} aria-labelledby="research-index-title">

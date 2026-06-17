@@ -109,9 +109,6 @@ export default function ShopPage() {
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section

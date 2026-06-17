@@ -109,21 +109,6 @@ body::before {
 /* ═══════════════════════════════════════════════════
    ACCESSIBILITY HELPERS
    ═══════════════════════════════════════════════ */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 12px 20px;
-  z-index: 9999;
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.skip-link:focus { left: 16px; top: 16px; }
-
 :focus-visible {
   outline: 2px solid var(--gold-text);
   outline-offset: 3px;

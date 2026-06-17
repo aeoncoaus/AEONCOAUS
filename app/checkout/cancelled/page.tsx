@@ -13,9 +13,6 @@ export const metadata: Metadata = {
 export default function CheckoutCancelledPage() {
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section className="section" style={{ paddingTop: 160 }} aria-labelledby="cancelled-title">
