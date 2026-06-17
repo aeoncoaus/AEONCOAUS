@@ -69,6 +69,18 @@ function packs(code: string, singleCents: number, fivePackCents: number, tenPack
   ];
 }
 
+/**
+ * Global kill-switch for purchase/checkout flows.
+ *
+ * When false: shop grid and PDPs stay live with full product info, but
+ * add-to-cart, /cart, /checkout, and all checkout API routes are inert.
+ * The PDPs swap the buy CTA for a per-product restock-notify email form.
+ *
+ * Flip to true once Stripe live keys are wired, the TGA compliance
+ * question is resolved, and the e2e test purchase has been validated.
+ */
+export const SALES_ENABLED = false;
+
 export const products: Product[] = [
   // ─── Tissue Repair ────────────────────────────────────────────────
   {
@@ -81,7 +93,7 @@ export const products: Product[] = [
     longDescription:
       'BPC-157 is a 15-amino-acid peptide derived from a gastric protective protein. Researched for accelerated healing of tendons, ligaments, muscle, gut tissue, and vascular endothelium. Each vial is sterile lyophilised powder; reconstitute with bacteriostatic water. Independently HPLC-tested at 99% purity. Cold-chain shipped.',
     imageUrl: '/products/bpc-157-10mg.jpg',
-    packs: packs('AEON-BPC-10', 8499, 37999, 67999),
+    packs: packs('AEON-BPC-10', 8999, 37999, 67999),
     defaultPackSize: 5,
   },
   {
@@ -94,7 +106,7 @@ export const products: Product[] = [
     longDescription:
       'TB-500 is a 43-amino-acid synthetic fragment of Thymosin Beta-4. Researched for cell migration, angiogenesis, and tissue regeneration following injury. Each vial is sterile lyophilised powder; reconstitute with bacteriostatic water. Independently HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/tb-500-10mg.jpg',
-    packs: packs('AEON-TB-10', 10999, 49499, 87999),
+    packs: packs('AEON-TB-10', 10999, 49999, 87999),
     defaultPackSize: 5,
   },
   {
@@ -107,7 +119,7 @@ export const products: Product[] = [
     longDescription:
       'A single-vial combination of BPC-157 (15 mg) and Thymosin Beta-4 (TB-500, 15 mg). Frequently co-administered in research for accelerated soft-tissue and vascular repair. Each vial is sterile lyophilised powder; reconstitute with bacteriostatic water. Both peptides HPLC-tested independently. Cold-chain shipped.',
     imageUrl: '/products/bpc-tb-blend-30mg.jpg',
-    packs: packs('AEON-BPC-TB-30', 32999, 148499, 263999),
+    packs: packs('AEON-BPC-TB-30', 32999, 148999, 263999),
     defaultPackSize: 5,
   },
 
@@ -123,7 +135,7 @@ export const products: Product[] = [
     longDescription:
       'GHK-Cu (Glycyl-L-histidyl-L-lysine bound to copper) is a naturally occurring copper-binding tripeptide. Extensive in-vitro literature on skin remodelling, collagen and elastin synthesis, anti-inflammatory effects, and modulation of gene expression related to wound healing. Each vial is sterile lyophilised powder. HPLC-tested 99%. Cold-chain shipped.',
     imageUrl: '/products/ghk-cu-50mg.jpg',
-    packs: packs('AEON-GHK-50', 7699, 34499, 61499),
+    packs: packs('AEON-GHK-50', 7999, 34999, 61999),
     defaultPackSize: 5,
   },
   {
@@ -150,7 +162,7 @@ export const products: Product[] = [
     longDescription:
       'A curated three-peptide blend designed for combined skin remodelling and soft-tissue research. Combines BPC-157, GHK-Cu, and TB-500 in a single 70 mg lyophilised vial. All component peptides HPLC-tested 99% purity. Cold-chain shipped.',
     imageUrl: '/products/glow-70mg.jpg',
-    packs: packs('AEON-GLOW-70', 15499, 69499, 123999),
+    packs: packs('AEON-GLOW-70', 15999, 69999, 123999),
     defaultPackSize: 5,
   },
   {
@@ -163,7 +175,7 @@ export const products: Product[] = [
     longDescription:
       'KLOW is GLOW with the addition of KPV (Lys-Pro-Val tripeptide), researched for its anti-inflammatory profile. Combines four peptides in a single 80 mg lyophilised vial. All component peptides HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/klow-80mg.jpg',
-    packs: packs('AEON-KLOW-80', 18999, 85499, 151999),
+    packs: packs('AEON-KLOW-80', 18999, 85999, 151999),
     defaultPackSize: 5,
   },
 
@@ -178,7 +190,7 @@ export const products: Product[] = [
     longDescription:
       'CJC-1295 with Drug Affinity Complex (DAC) is a modified growth-hormone-releasing hormone analogue. The DAC modification extends half-life significantly, supporting weekly-frequency research protocols. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/cjc-1295-with-dac-5mg.jpg',
-    packs: packs('AEON-CJC-DAC-5', 8999, 40499, 71999),
+    packs: packs('AEON-CJC-DAC-5', 8999, 40999, 71999),
     defaultPackSize: 5,
   },
   {
@@ -191,7 +203,7 @@ export const products: Product[] = [
     longDescription:
       'CJC-1295 without the DAC modification — the short-acting form. Researched in combination with ghrelin mimetics for pulsatile GH release patterns. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/cjc-1295-without-dac-10mg.jpg',
-    packs: packs('AEON-CJC-NODAC-10', 10999, 49499, 87999),
+    packs: packs('AEON-CJC-NODAC-10', 10999, 49999, 87999),
     defaultPackSize: 5,
   },
   {
@@ -204,7 +216,7 @@ export const products: Product[] = [
     longDescription:
       'Ipamorelin is a selective growth hormone secretagogue. Researched for its targeted effect on GH release without significant impact on cortisol or prolactin. Often co-administered with CJC-1295 in research protocols. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/ipamorelin-10mg.jpg',
-    packs: packs('AEON-IPA-10', 8699, 38999, 69499),
+    packs: packs('AEON-IPA-10', 8999, 38999, 69999),
     defaultPackSize: 5,
   },
   {
@@ -246,7 +258,7 @@ export const products: Product[] = [
     longDescription:
       'Retatrutide (LY3437943) is an investigational triple agonist of the GLP-1, GIP, and glucagon receptors. Active Phase II/III research showing notable effects on body composition and metabolic markers in published trials. NOT approved by the TGA or any regulatory body. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/retatrutide-10mg.jpg',
-    packs: packs('AEON-RETA-10', 14499, 64999, 115999),
+    packs: packs('AEON-RETA-10', 14999, 64999, 115999),
     defaultPackSize: 5,
   },
   {
@@ -260,7 +272,7 @@ export const products: Product[] = [
     longDescription:
       'Retatrutide at 20 mg per vial for extended research protocols. Same Phase II/III investigational status — not approved by any regulatory body. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/retatrutide-20mg.jpg',
-    packs: packs('AEON-RETA-20', 24499, 109999, 195999),
+    packs: packs('AEON-RETA-20', 24999, 109999, 195999),
     defaultPackSize: 5,
   },
   {
@@ -302,7 +314,7 @@ export const products: Product[] = [
     longDescription:
       'NAD+ (Nicotinamide adenine dinucleotide) is a core coenzyme in cellular energy metabolism and a research target in longevity and mitochondrial health. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/nad-plus-500mg.jpg',
-    packs: packs('AEON-NAD-500', 13499, 60499, 107999),
+    packs: packs('AEON-NAD-500', 13999, 60999, 107999),
     defaultPackSize: 5,
   },
   {
@@ -315,7 +327,7 @@ export const products: Product[] = [
     longDescription:
       'L-Carnitine is an amino acid derivative central to long-chain fatty acid transport into mitochondria for beta-oxidation. Each vial is sterile lyophilised powder. HPLC-tested. Cold-chain shipped.',
     imageUrl: '/products/l-carnitine-600mg.jpg',
-    packs: packs('AEON-LCAR-600', 10499, 46999, 83999),
+    packs: packs('AEON-LCAR-600', 10999, 46999, 83999),
     defaultPackSize: 5,
   },
 ];

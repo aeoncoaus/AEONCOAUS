@@ -8,7 +8,7 @@
  * directly with fetch().
  */
 
-import { processorLineLabel } from '../../../lib/products';
+import { processorLineLabel, SALES_ENABLED } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 export const runtime = 'nodejs';
@@ -25,6 +25,9 @@ type CoinbaseChargeResponse = {
 };
 
 export async function POST(request: Request) {
+  if (!SALES_ENABLED) {
+    return Response.json({ error: 'Sales are currently paused.' }, { status: 503 });
+  }
   let body: unknown;
   try {
     body = await request.json();

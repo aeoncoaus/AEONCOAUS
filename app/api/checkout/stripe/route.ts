@@ -10,7 +10,7 @@
  */
 
 import Stripe from 'stripe';
-import { processorLineLabel } from '../../../lib/products';
+import { processorLineLabel, SALES_ENABLED } from '../../../lib/products';
 import { validateCheckoutPayload } from '../../../lib/checkout-validation';
 
 // Force Node.js runtime — the Stripe SDK isn't Edge-compatible.
@@ -24,6 +24,9 @@ function getStripe(): Stripe | null {
 }
 
 export async function POST(request: Request) {
+  if (!SALES_ENABLED) {
+    return Response.json({ error: 'Sales are currently paused.' }, { status: 503 });
+  }
   let body: unknown;
   try {
     body = await request.json();

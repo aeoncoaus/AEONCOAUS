@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CheckoutForm from '../components/CheckoutForm';
+import { SALES_ENABLED } from '../lib/products';
 
 export const metadata: Metadata = {
   title: 'Checkout',
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function CheckoutPage() {
+  if (!SALES_ENABLED) redirect('/shop');
   return (
     <>
       <a href="#main" className="skip-link">

@@ -1,7 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { type PackSize, type PackVariant, type Product, packLabel } from '../lib/products';
+import {
+  SALES_ENABLED,
+  type PackSize,
+  type PackVariant,
+  type Product,
+  packLabel,
+} from '../lib/products';
 import { formatAud } from '../lib/format';
 import AddToCartButton from './AddToCartButton';
 
@@ -36,7 +42,7 @@ export default function PackSelector({ product }: { product: Product }) {
   const disabledReason = 'AEON sells in bulk packs only. Choose a 5-Pack or 10-Pack to add to cart.';
 
   function badgeFor(v: PackVariant): { text: string; cls: string } | null {
-    if (v.status !== 'in_stock') return { text: 'Sold Out', cls: 'pack-tile-badge--soldout' };
+    if (!SALES_ENABLED || v.status !== 'in_stock') return { text: 'Sold Out', cls: 'pack-tile-badge--soldout' };
     if (v.packSize === 5) return { text: 'Most Popular', cls: 'pack-tile-badge--popular' };
     if (v.packSize === 10) return { text: 'Best Value · 20% off per vial', cls: 'pack-tile-badge--value' };
     return null;
@@ -51,7 +57,7 @@ export default function PackSelector({ product }: { product: Product }) {
       >
         {ordered.map((v) => {
           const isSelected = v.packSize === selectedSize;
-          const isDisabled = v.status !== 'in_stock';
+          const isDisabled = !SALES_ENABLED || v.status !== 'in_stock';
           const badge = badgeFor(v);
 
           return (
@@ -87,14 +93,22 @@ export default function PackSelector({ product }: { product: Product }) {
       </div>
 
       <div className="pack-selector-cta">
-        <AddToCartButton
-          sku={selectedSku}
-          productName={`${product.name} ${product.dose}`}
-          disabled={selected.status !== 'in_stock'}
-          disabledReason={disabledReason}
-        />
-        {selected.status !== 'in_stock' && (
-          <p className="pack-selector-hint">{disabledReason}</p>
+        {SALES_ENABLED ? (
+          <>
+            <AddToCartButton
+              sku={selectedSku}
+              productName={`${product.name} ${product.dose}`}
+              disabled={selected.status !== 'in_stock'}
+              disabledReason={disabledReason}
+            />
+            {selected.status !== 'in_stock' && (
+              <p className="pack-selector-hint">{disabledReason}</p>
+            )}
+          </>
+        ) : (
+          <p className="pack-selector-hint">
+            Currently sold out — use the form below to be notified the moment we restock.
+          </p>
         )}
       </div>
     </div>

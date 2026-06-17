@@ -3044,3 +3044,153 @@ footer {
   .shop-category-chip { padding: 8px 14px; font-size: 12px; }
 }
 
+/* ═══════════════════════════════════════════════════
+   PDP — At-a-glance dosing block (research-reference)
+   ═══════════════════════════════════════════════ */
+.product-dosing-block {
+  margin: 24px 0 8px;
+  padding: 22px 24px 18px;
+  background: var(--cream);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--gold);
+}
+.product-dosing-eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.product-dosing-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.product-dosing-grid {
+  margin: 0 0 14px;
+  display: grid;
+  gap: 12px;
+}
+.product-dosing-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--charcoal);
+  line-height: 1.6;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.product-dosing-row:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.product-dosing-row dt {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 600;
+}
+.product-dosing-row dd {
+  margin: 0;
+}
+.product-dosing-disclaimer {
+  font-size: 11.5px;
+  color: var(--soot);
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+@media (max-width: 640px) {
+  .product-dosing-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   PDP — Restock-notify form (replaces buy CTA while SALES_ENABLED=false)
+   ═══════════════════════════════════════════════ */
+.restock-notify {
+  margin: 24px 0 8px;
+  padding: 22px 24px;
+  background: var(--ivory);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--gold-dk);
+}
+.restock-notify-eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.restock-notify-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.restock-notify-blurb {
+  font-size: 13.5px;
+  color: var(--charcoal);
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.restock-notify-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+.restock-notify-form .form-group {
+  flex: 1 1 220px;
+  min-width: 180px;
+  margin: 0;
+}
+.restock-notify-form input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  color: var(--ink);
+}
+.restock-notify-form input[type="email"]:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold-text);
+}
+.restock-notify-btn {
+  background: var(--ink);
+  color: var(--white);
+  border: none;
+  padding: 13px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s var(--ease);
+}
+.restock-notify-btn:hover:not(:disabled),
+.restock-notify-btn:focus-visible {
+  background: var(--gold-text);
+}
+.restock-notify-btn:disabled { opacity: .55; cursor: not-allowed; }
+.restock-notify-success {
+  padding: 14px 16px;
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+@media (max-width: 520px) {
+  .restock-notify-form { flex-direction: column; align-items: stretch; }
+  .restock-notify-btn { width: 100%; }
+}
+

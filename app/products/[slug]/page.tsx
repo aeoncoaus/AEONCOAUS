@@ -10,8 +10,11 @@ import {
   getAllProductSlugs,
   getProduct,
   getSiblingProducts,
+  SALES_ENABLED,
 } from '../../lib/products';
 import { getResearchSlugForProduct, hasResearchNote } from '../../lib/research';
+import ProductDosingBlock from '../../components/ProductDosingBlock';
+import RestockNotify from '../../components/RestockNotify';
 
 type Params = { slug: string };
 
@@ -93,7 +96,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 </Link>
               )}
 
+              <ProductDosingBlock product={product} />
+
               <PackSelector product={product} />
+
+              {!SALES_ENABLED && <RestockNotify product={product} />}
 
               <div className="product-detail-disclaimer">
                 Products supplied by AEON are intended for in-vitro research and laboratory use
