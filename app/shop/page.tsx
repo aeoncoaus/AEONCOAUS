@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import { getPackVariant, getShopCards, SALES_ENABLED, type Product } from '../lib/products';
+import { getPackVariant, getShopCards, type Product } from '../lib/products';
 import { formatAud } from '../lib/format';
 
 export const metadata: Metadata = {
@@ -33,12 +33,9 @@ function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className={`product-card shop-card is-static${SALES_ENABLED ? '' : ' shop-card--soldout'}`}
+      className="product-card shop-card is-static"
     >
       <div className="shop-card-media">
-        {!SALES_ENABLED && (
-          <span className="shop-card-badge">Sold out</span>
-        )}
         <Image
           src={product.imageUrl}
           alt=""
