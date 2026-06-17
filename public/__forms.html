@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <title>Netlify Forms stub</title>
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body>
+  <!--
+    Netlify scans this file at build time to detect forms used by the
+    JS-rendered Next.js pages. Without it, Netlify Forms won't know the
+    "waitlist" form exists. Field names here MUST match those submitted
+    by the live form on the site. Keep this file in sync with
+    app/components/HeroSection.tsx.
+  -->
+  <form name="waitlist" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="waitlist" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+  </form>
+
+  <!--
+    Per-PDP "notify me when restocked" form. Surfaced on every product page
+    while SALES_ENABLED=false. Field names must match
+    app/components/RestockNotify.tsx.
+  -->
+  <form name="restock" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="restock" />
+    <input type="text" name="bot-field" />
+    <input type="hidden" name="product" />
+    <input type="hidden" name="productCode" />
+    <input type="hidden" name="productName" />
+    <input type="email" name="email" />
+  </form>
+
+</body>
+</html>

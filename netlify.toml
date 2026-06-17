@@ -1,0 +1,39 @@
+# Netlify configuration for Next.js shop
+# Replaces the standalone netlify.com headers file (which stays for now;
+# the values here take precedence on this build).
+
+[build]
+  command   = "npm install --legacy-peer-deps && npm run build"
+  publish   = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.18.1"
+  NPM_FLAGS    = "--legacy-peer-deps"
+  # Prevent Next.js from collecting anonymous telemetry during build
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Existing static blog files in public/blog/ are served at /blog/*
+# automatically by Next.js (public/ → site root). No rewrites needed.
+
+# Security headers (mirror existing netlify.com file)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options          = "DENY"
+    X-Content-Type-Options   = "nosniff"
+    Referrer-Policy          = "strict-origin-when-cross-origin"
+    Permissions-Policy       = "geolocation=(), microphone=(), camera=()"
+
+# Cache control for static assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
