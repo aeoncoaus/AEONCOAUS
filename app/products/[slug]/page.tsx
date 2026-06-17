@@ -51,9 +51,6 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section className="section" style={{ paddingTop: 160 }} aria-labelledby="product-title">

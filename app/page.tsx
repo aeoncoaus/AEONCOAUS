@@ -18,9 +18,6 @@ import SmoothScroll from './components/SmoothScroll';
 export default function HomePage() {
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <HeroSection />

@@ -59,9 +59,6 @@ export default async function CheckoutSuccessPage({
 
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section className="section" style={{ paddingTop: 160 }} aria-labelledby="success-title">

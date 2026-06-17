@@ -16,9 +16,6 @@ export default function CheckoutPage() {
   if (!SALES_ENABLED) redirect('/shop');
   return (
     <>
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
       <Nav />
       <main id="main">
         <section className="section" style={{ paddingTop: 160 }} aria-labelledby="checkout-title">
